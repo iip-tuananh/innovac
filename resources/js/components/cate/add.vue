@@ -42,6 +42,14 @@
                     :title="'danh-muc'"
                   ></image-upload>
                 </div>
+                <div class="form-group">
+                  <label>Banner danh mục</label>
+                  <image-upload
+                    v-model="objData.imagehome"
+                    type="avatar"
+                    :title="'banner-danh-muc'"
+                  ></image-upload>
+                </div>
                 <!-- <div class="form-group">
                     <label>Nội dung</label>
                     <TinyMce v-model="objData.content" />

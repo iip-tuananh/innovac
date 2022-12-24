@@ -219,10 +219,10 @@ export default {
               name: "Đơn hàng đã thanh toán",
               path: "/bill/paymented",
             },
-            {
-              name: "Đơn hàng chưa hoàn tất",
-              path: "/bill/Unpayment",
-            },
+            // {
+            //   name: "Đơn hàng chưa hoàn tất",
+            //   path: "/bill/Unpayment",
+            // },
           ],
         },
         // {
