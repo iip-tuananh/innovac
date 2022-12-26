@@ -68,7 +68,7 @@ $color = json_decode($product->size);
             @endif
             <div class="product-description product-summary">
                <div class="rte">
-                  {!!languageName($product->content)!!}
+                  {!!languageName($product->description)!!}
                </div>
             </div>
             <form class="quick_option variants form-ajaxtocart form-product" id="product-actions-27357045">

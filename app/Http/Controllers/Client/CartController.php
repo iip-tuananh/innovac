@@ -111,10 +111,12 @@ class CartController extends Controller
         $view1 = view('cart.header-cart', $data)->render();
         $view2 = view('cart.count-cart', $data)->render();
         $view4 = view('cart.popup-cart-desktop', $data)->render();
+        $view5 = view('cart.popup-cart-mobile',$data)->render();
         return response()->json([
             'html1' => $view1,
             'html2' => $view2,
-            'html3' => $view4
+            'html3' => $view4,
+            'html5' => $view5
         ]);
     }
     public function update(Request $request)
@@ -129,11 +131,13 @@ class CartController extends Controller
             $view2 = view('cart.count-cart', $data)->render();
             $view3 = view('cart.list-cart-ajax', $data)->render();
             $view4 = view('cart.popup-cart-desktop', $data)->render();
+            $view5 = view('cart.popup-cart-mobile',$data)->render();
             return response()->json([
                 'html1' => $view1,
                 'html2' => $view2,
                 'html3' => $view3,
-                'html4' => $view4
+                'html4' => $view4,
+                'html5' => $view5
             ]);
         }
         

@@ -202,7 +202,6 @@
                             Danh mục phổ biến
                         </h2>
                     </div>
-
                     <div class="block-content">
                         <div class="cate-swiper swiper-container">
                             <div class="swiper-wrapper">
@@ -222,10 +221,6 @@
                                                 <div class="count">({{ count($cate->product) }} sản phẩm)</div>
                                             </div>
                                         </div>
-
-                                        {{-- <div class="image_cate col-8">
-                                    <img src="{{$cate->avatar}}" alt="">
-                                </div> --}}
                                     </div>
                                 @endforeach
                             </div>
@@ -279,10 +274,6 @@
                     }
                 });
             </script>
-            <link rel="preload" as="script"
-                href="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/count.js?1670831590614" />
-            <script src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/count.js?1670831590614" type="text/javascript">
-            </script>
             <div class="section_deal_hot">
                 <div class="container">
                     <div class="block-title">
@@ -291,10 +282,6 @@
                                 Sản phẩm nổi bật
                             </a>
                         </h2>
-                        {{-- <div class="timer">
-                       <span class="text d-none">Hết hạn trong:</span>
-                       <div class="time" data-countdown="countdown" data-date="10-2-2022-09-15-45"></div>
-                   </div> --}}
                     </div>
                     <div class="block-content">
                         <div class="row">
@@ -334,7 +321,7 @@
                     timestamp: new Date().getTime(),
                 }
             </script>
-            <script src="{{ asset('frontend//js/flashsale.js') }}" defer></script>
+            <script src="{{ asset('frontend/js/flashsale.js') }}" defer></script>
             <section class="section_three_banner section_product">
                 <div class="container">
                     <div class="block-title">
@@ -350,7 +337,7 @@
                                 <p  class="thumb image_hover" title="Sapo">
                                     <img width="377" height="207" class="lazy"
                                         src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                        data-src="{{ $banner->image }}" alt="ND Tech">
+                                        data-src="{{ $banner->image }}" alt="{{$setting->company}}">
                                 </p>
                             </div>
                         @endforeach
@@ -392,11 +379,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 d-md-block d-none block-banner col-right">
-                                    <a href="#" class="thumb image_hover" title="ND Tech">
+                                    <a href="#" class="thumb image_hover" title="{{$setting->company}}">
                                         <img class="lazyload" width="377" height="534"
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{$cate->imagehome}}"
-                                            alt="ND Tech">
+                                            alt="{{$setting->company}}">
                                     </a>
                                 </div>
                             </div>
@@ -480,11 +467,11 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 d-md-block d-none block-banner col-right order-md-1">
-                                    <a href="#" class="thumb image_hover" title="ND Tech">
+                                    <a href="#" class="thumb image_hover" title="{{$setting->company}}">
                                         <img class="lazyload" width="377" height="534"
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{$cate->imagehome}}"
-                                            alt="ND Tech">
+                                            alt="{{$setting->company}}">
                                     </a>
                                 </div>
                             </div>
@@ -541,11 +528,11 @@
             @endif
             @endforeach
             <section class="section_one_banner">
-                <a href="#" class="thumb" title="ND Tech">
+                <a href="#" class="thumb" title="{{$setting->company}}">
                     <img class="lazyload" width="1920" height="212"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                         data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/img_one_banner.jpg?1670831590614"
-                        alt="ND Tech">
+                        alt="{{$setting->company}}">
                 </a>
             </section>
             <section class="section_blog">
@@ -710,109 +697,5 @@
                 });
             </script>
         </div>
-        <script>
-            (function($) {
-                "use strict";
-                $.ajaxChimp = {
-                    responses: {
-                        "We have sent you a confirmation email": 0,
-                        "Please enter a valueggg": 1,
-                        "An email address must contain a single @": 2,
-                        "The domain portion of the email address is invalid (the portion after the @: )": 3,
-                        "The username portion of the email address is invalid (the portion before the @: )": 4,
-                        "This email address looks fake or invalid. Please enter a real email address": 5
-                    },
-                    translations: {
-                        en: null
-                    },
-                    init: function(selector, options) {
-                        $(selector).ajaxChimp(options)
-                    }
-                };
-                $.fn.ajaxChimp = function(options) {
-                    $(this).each(function(i, elem) {
-                        var form = $(elem);
-                        var email = form.find("input[type=email]");
-                        var label = form.find("label[for=" + email.attr("id") + "]");
-                        var settings = $.extend({
-                            url: form.attr("action"),
-                            language: "en"
-                        }, options);
-                        var url = settings.url.replace("/post?", "/post-json?").concat("&c=?");
-                        form.attr("novalidate", "true");
-                        email.attr("name", "EMAIL");
-                        form.submit(function() {
-                            var msg;
-
-                            function successCallback(resp) {
-                                if (resp.result === "success") {
-                                    msg = "We have sent you a confirmation email";
-                                    label.removeClass("error").addClass("valid");
-                                    email.removeClass("error").addClass("valid")
-                                } else {
-                                    email.removeClass("valid").addClass("error");
-                                    label.removeClass("valid").addClass("error");
-                                    var index = -1;
-                                    try {
-                                        var parts = resp.msg.split(" - ", 2);
-                                        if (parts[1] === undefined) {
-                                            msg = resp.msg
-                                        } else {
-                                            var i = parseInt(parts[0], 10);
-                                            if (i.toString() === parts[0]) {
-                                                index = parts[0];
-                                                msg = parts[1]
-                                            } else {
-                                                index = -1;
-                                                msg = resp.msg
-                                            }
-                                        }
-                                    } catch (e) {
-                                        index = -1;
-                                        msg = resp.msg
-                                    }
-                                }
-                                if (settings.language !== "en" && $.ajaxChimp.responses[msg] !==
-                                    undefined && $.ajaxChimp.translations && $.ajaxChimp.translations[
-                                        settings.language] && $.ajaxChimp.translations[settings
-                                        .language][$.ajaxChimp.responses[msg]]) {
-                                    msg = $.ajaxChimp.translations[settings.language][$.ajaxChimp
-                                        .responses[msg]
-                                    ]
-                                }
-                                label.html(msg);
-                                label.show(2e3);
-                                if (settings.callback) {
-                                    settings.callback(resp)
-                                }
-                            }
-                            var data = {};
-                            var dataArray = form.serializeArray();
-                            $.each(dataArray, function(index, item) {
-                                data[item.name] = item.value
-                            });
-                            $.ajax({
-                                url: url,
-                                data: data,
-                                success: successCallback,
-                                dataType: "jsonp",
-                                error: function(resp, text) {
-                                    console.log("mailchimp ajax submit error: " + text)
-                                }
-                            });
-                            var submitMsg = "Submitting...";
-                            if (settings.language !== "en" && $.ajaxChimp.translations && $.ajaxChimp
-                                .translations[settings.language] && $.ajaxChimp.translations[settings
-                                    .language]["submit"]) {
-                                submitMsg = $.ajaxChimp.translations[settings.language]["submit"]
-                            }
-                            label.html(submitMsg).show(2e3);
-                            return false
-                        })
-                    });
-                    return this
-                }
-            })(jQuery);
-        </script>
     </div>
 @endsection

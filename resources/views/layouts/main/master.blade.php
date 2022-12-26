@@ -121,16 +121,7 @@
     @include('layouts.header.index')
     @yield('content')
     @include('layouts.footer.index')
-    <a href="javascript:;" title="So sánh" class="btn-show-popup-compare icon-ss-mb d-lg-none">
-        <svg x="0" y="0" viewBox="0 0 459 459.648" style="enable-background:new 0 0 512 512">
-            <path xmlns="http://www.w3.org/2000/svg"
-                d="m416.324219 293.824219c0 26.507812-21.492188 48-48 48h-313.375l63.199219-63.199219-22.625-22.625-90.511719 90.511719c-6.246094 6.25-6.246094 16.375 0 22.625l90.511719 90.511719 22.625-22.625-63.199219-63.199219h313.375c44.160156-.054688 79.945312-35.839844 80-80v-64h-32zm0 0"
-                fill="#7B7B7B" data-original="#000000" style=""></path>
-            <path xmlns="http://www.w3.org/2000/svg"
-                d="m32.324219 165.824219c0-26.511719 21.488281-48 48-48h313.375l-63.199219 63.199219 22.625 22.625 90.511719-90.511719c6.246093-6.25 6.246093-16.375 0-22.625l-90.511719-90.511719-22.625 22.625 63.199219 63.199219h-313.375c-44.160157.050781-79.949219 35.839843-80 80v64h32zm0 0"
-                fill="#7B7B7B" data-original="#000000" style=""></path>
-        </svg>
-    </a>
+    
     <a href="#" class="backtop" title="Lên đầu trang">
         <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="angle-up" role="img"
             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-angle-up fa-w-10">
@@ -146,43 +137,7 @@
     <div id="popup-cart-desktop" class="popup-cart">
     </div>
     <div id="popup-cart-mobile" class="popup-cart-mobile">
-        <div class="header-popcart">
-            <div class="top-cart-header">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="682.66669pt"
-                        viewBox="-21 -21 682.66669 682.66669" width="682.66669pt">
-                        <path
-                            d="m322.820312 387.933594 279.949219-307.273438 36.957031 33.671875-314.339843 345.023438-171.363281-162.902344 34.453124-36.238281zm297.492188-178.867188-38.988281 42.929688c5.660156 21.734375 8.675781 44.523437 8.675781 68.003906 0 148.875-121.125 270-270 270s-270-121.125-270-270 121.125-270 270-270c68.96875 0 131.96875 26.007812 179.746094 68.710938l33.707031-37.113282c-58.761719-52.738281-133.886719-81.597656-213.453125-81.597656-85.472656 0-165.835938 33.285156-226.273438 93.726562-60.441406 60.4375-93.726562 140.800782-93.726562 226.273438s33.285156 165.835938 93.726562 226.273438c60.4375 60.441406 140.800782 93.726562 226.273438 93.726562s165.835938-33.285156 226.273438-93.726562c60.441406-60.4375 93.726562-140.800782 93.726562-226.273438 0-38.46875-6.761719-75.890625-19.6875-110.933594zm0 0" />
-                    </svg>
-                    Mua hàng thành công
-                </span>
-            </div>
-            <div class="media-content bodycart-mobile">
-            </div>
-            <a class="noti-cart-count" href="/cart" title="Giỏ hàng"> Giỏ hàng của bạn hiện có <span
-                    class="count_item_pr"></span> sản phẩm </a>
-            <a title="Đóng" class="cart_btn-close iconclose">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                    id="Capa_1" x="0px" y="0px" viewBox="0 0 512.001 512.001"
-                    style="enable-background:new 0 0 512.001 512.001;" xml:space="preserve">
-                    <g>
-                        <g>
-                            <path
-                                d="M284.286,256.002L506.143,34.144c7.811-7.811,7.811-20.475,0-28.285c-7.811-7.81-20.475-7.811-28.285,0L256,227.717    L34.143,5.859c-7.811-7.811-20.475-7.811-28.285,0c-7.81,7.811-7.811,20.475,0,28.285l221.857,221.857L5.858,477.859    c-7.811,7.811-7.811,20.475,0,28.285c3.905,3.905,9.024,5.857,14.143,5.857c5.119,0,10.237-1.952,14.143-5.857L256,284.287    l221.857,221.857c3.905,3.905,9.024,5.857,14.143,5.857s10.237-1.952,14.143-5.857c7.811-7.811,7.811-20.475,0-28.285    L284.286,256.002z" />
-                        </g>
-                    </g>
-                </svg>
-            </a>
-            <div class="bottom-action">
-                <div class="cart_btn-close tocontinued">
-                    Tiếp tục mua hàng
-                </div>
-                <a href="/checkout" class="checkout">
-                    Thanh toán ngay
-                </a>
-            </div>
-        </div>
-    </div>
+     </div>
     <div id="quick-view-product" class="quickview-product" style="display:none">
         
      </div>
@@ -208,7 +163,39 @@
             })
         })
     </script>
- 
+
+    {{-- add-to-cart --}}
+    <script>
+        $('.add_to_cart').click(function(e){
+        e.preventDefault();
+        var id = $(this).parent().find('input[name=id]').val();
+        var quantity = $('input[name=quantity]').val();
+        var color = $('input[name=color]').val();
+        var url = $(this).data('url');
+        $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: {'id': id, 'quantity': quantity, 'color': color},
+            success: function(data){
+                $('.top-cart-content').html(data.html1);
+                $('.count_item_pr').html(data.html2);
+                $('.backdrop__body-backdrop___1rvky').addClass('active');
+                if ($(window).width() > 768) {
+                    $('#popup-cart-desktop').html(data.html3);
+                    $('#popup-cart-desktop').addClass('active');
+                    $('#popup-cart-mobile').removeClass('active');
+                } else {
+                    $('#popup-cart-mobile').html(data.html5);
+                    $('#popup-cart-desktop').removeClass('active');
+                    $('#popup-cart-mobile').addClass('active');
+
+                }
+            }
+        })
+        })
+    </script>
+
     {{-- update-cart --}}
     <script>
         function btnMinus(e) {
@@ -266,9 +253,11 @@
         function removePopup() {
             $('#popup-cart-desktop').removeClass('active');
             $('.backdrop__body-backdrop___1rvky').removeClass('active');
+            $('#popup-cart-mobile').removeClass('active');
         }
         $('.backdrop__body-backdrop___1rvky').click(function() {
             $('#popup-cart-desktop').removeClass('active');
+            $('#popup-cart-mobile').removeClass('active');
             $('.backdrop__body-backdrop___1rvky').removeClass('active');
         })
     </script>
@@ -310,24 +299,10 @@
         </div>
     </div>
     <div class="overplayAll"></div>
-        <div class="icon d-none">
-            <a href="/so-sanh-san-pham" class="wishlist_header" title="So sánh sản phẩm">
-                <svg width="419pt" height="419pt" viewBox="0 -45 419.24 419" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="m359.08 102.91c1.4609 1.5391 3.4766 2.4375 5.6016 2.4844 2.125 0.050781 4.1797-0.75 5.7109-2.2227l46.414-44.898c1.5625-1.5117 2.4414-3.5938 2.4336-5.7656-0.003906-2.1758-0.89453-4.2539-2.4688-5.7539l-46.41-44.41c-3.1953-3.0547-8.2578-2.9414-11.312 0.25-1.4648 1.4922-2.2656 3.5156-2.2188 5.6055 0.046875 2.0898 0.9375 4.0742 2.4688 5.5l32.008 30.426h-64.273c-27.59 0.14453-53.539 13.133-70.191 35.137l-54.852 71.617-79.242-103.46c-1.4961-2.0156-3.8359-3.2305-6.3477-3.2891h-108.4c-4.418 0-8 3.582-8 8 0 4.418 3.582 8 8 8h104.45l79.449 104-79.449 104h-104.45c-4.418 0-8 3.582-8 8 0 4.418 3.582 8 8 8h108.4c2.5195-0.078125 4.8594-1.3086 6.3477-3.3359l79.242-103.41 54.812 71.617c16.66 22.012 42.625 35.004 70.23 35.133h64.273l-32.008 30.426c-2.3555 2.2344-3.1016 5.6875-1.8789 8.6992 1.2227 3.0078 4.1602 4.9648 7.4102 4.9258 2.0625-0.007813 4.043-0.8125 5.5312-2.2461l46.41-44.426c1.5742-1.5039 2.4648-3.5859 2.4688-5.7617 0.007813-2.1758-0.87109-4.2617-2.4336-5.7773l-46.414-44.91c-3.1758-3.0742-8.2422-2.9883-11.312 0.18359-3.0703 3.2539-2.9883 8.3633 0.1875 11.516l32.207 31.371h-64.441c-22.617-0.14062-43.875-10.816-57.5-28.875l-57.461-75.023 57.5-75.227c13.613-18.043 34.855-28.719 57.461-28.875h64.441l-32.207 31.371c-3.1758 3.1094-3.2578 8.1992-0.1875 11.414z" />
-                </svg>
-                <span class="headerCompareCount">0</span>
-            </a>
-        </div>
-    {{-- <link rel="preload"
-        href="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/wishlist-compare.js?1670831590614"
-        as="script">
-    <script src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/wishlist-compare.js?1670831590614"
-        type="text/javascript"></script> --}}
     <div id="popupCartModal" class="modal fade" role="dialog"></div>
     <div class="addThis_listSharing addThis_listing">
         <div class="addThis_item">
-            <a class="addThis_item-icon" href="tel:0985016662" rel="nofollow" aria-label="phone"
+            <a class="addThis_item-icon" href="tel:{{$setting->phone1}}" rel="nofollow" aria-label="phone"
                 title="Gọi ngay cho chúng tôi ">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -347,7 +322,7 @@
             </a>
         </div>
         <div class="addThis_item">
-            <a class="addThis_item-icon" href="https://www.facebook.com/sapo.vn " target="_blank"
+            <a class="addThis_item-icon" href="https://zalo.me/{{$setting->phone1}}" target="_blank"
                 rel="nofollow noreferrer" aria-label="zalo" title="Chat với chúng tôi qua Zalo ">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -382,7 +357,7 @@
             </a>
         </div>
         <div class="addThis_item">
-            <a class="addThis_item-icon" href="mailto:ndtheme95@gmail.com" aria-label="email"
+            <a class="addThis_item-icon" href="mailto:{{$setting->email}}" aria-label="email"
                 title="Gửi email cho chúng tôi ">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none"
                     xmlns="http://www.w3.org/2000/svg">

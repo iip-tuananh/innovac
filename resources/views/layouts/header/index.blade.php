@@ -275,17 +275,18 @@
                             <a class="a-img caret-down" href="{{route('allListProCate',['cate'=>$cate->slug])}}" title=" {{languageName($cate->name)}}">
                                 {{languageName($cate->name)}}
                             </a>
-                            <i class="fa fa-caret-down"></i>
-                            <ul class="item_small">
-                                @foreach ($cate->typeCate as $type)
-                                <li>
-                                    <a class="" href="{{route('allListProType',['cate'=>$type->cate_slug,'type'=>$type->slug])}}" title="   {{languageName($type->name)}}">
-                                        {{languageName($type->name)}}
-                                    </a>
-                                </li>   
-                                @endforeach
-                                
-                            </ul>
+                            @if (count($cate->typeCate) > 0)
+                                <i class="fa fa-caret-down"></i>
+                                <ul class="item_small">
+                                    @foreach ($cate->typeCate as $type)
+                                    <li>
+                                        <a class="" href="{{route('allListProType',['cate'=>$type->cate_slug,'type'=>$type->slug])}}" title="   {{languageName($type->name)}}">
+                                            {{languageName($type->name)}}
+                                        </a>
+                                    </li>   
+                                    @endforeach
+                                </ul>
+                            @endif
                         </li>
                         @endforeach
                        </ul>
@@ -304,6 +305,33 @@
                                    Giới thiệu
                                </a>
                            </li>
+                           <li class="nav-item ">
+                            <a class="a-img caret-down" href="{{route('allProduct')}}" title="Sản phẩm">
+                            Sản phẩm
+                            </a>
+                            <i class="fa fa-caret-down"></i>
+                            <ul class="item_small">
+                                @foreach ($categoryProduct as $cate)
+                               <li>
+                                <a class="a-img caret-down" href="{{route('allListProCate',['cate'=>$cate->slug])}}" title=" {{languageName($cate->name)}}">
+                                    {{languageName($cate->name)}}
+                                  </a>
+                                  @if (count($cate->typeCate) > 0)
+                                    <i class="fa fa-caret-down"></i>
+                                    <ul>
+                                        @foreach ($cate->typeCate as $type)
+                                        <li>
+                                            <a class="" href="{{route('allListProType',['cate'=>$type->cate_slug,'type'=>$type->slug])}}" title="   {{languageName($type->name)}}">
+                                                {{languageName($type->name)}}
+                                            </a>
+                                        </li>   
+                                        @endforeach
+                                    </ul>
+                                  @endif
+                               </li>
+                               @endforeach
+                            </ul>
+                         </li>
                            <li class="nav-item ">
                                <a class="a-img caret-down" href="#" title="Sản phẩm">
                                    Chính sách đổi trả

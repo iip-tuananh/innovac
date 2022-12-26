@@ -22,11 +22,9 @@ $discountPrice = $product->price - ($product->price * ($product->discount / 100)
            </span>
            @endif
            <div class="actions-primary">
-               <input class="hidden" type="hidden" name="variantId"
-                   value="70241732" />
-                   <button class="btn-cart" title="Chi tiết" type="button"
-                   onclick="window.location.href='{{route('detailProduct',['cate'=>$product->cate_slug,'slug'=>$product->slug])}}'">
-                   Chi tiết
+                <input type="text" name="id" value="{{$product->id}}" hidden/>
+                <button class="btn-cart add_to_cart" title="Thêm giỏ hàng" type="button" data-url="{{route('addToCart')}}">
+                   Thêm giỏ hàng
                </button>
            </div>
        </div>

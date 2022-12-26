@@ -28,30 +28,6 @@ $promotion =  json_decode($product->preserve);
 @section('js')
 <link rel="preload" as="script" href="{{asset('frontend/js/picbox.js')}}" />
 <script src="{{asset('frontend/js/picbox.js')}}" type="text/javascript"></script>
-{{-- add-to-cart --}}
-<script>
-   $('.add_to_cart').click(function(e){
-      e.preventDefault();
-      var id = $('input[name=id]').val();
-      console.log(id);
-      var quantity = $('input[name=quantity]').val();
-      var color = $('input[name=color]').val();
-      var url = $(this).data('url');
-      $.ajax({
-         type: "POST",
-         url: url,
-         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-         data: {'id': id, 'quantity': quantity, 'color': color},
-         success: function(data){
-            $('.top-cart-content').html(data.html1);
-            $('.count_item_pr').html(data.html2);
-            $('#popup-cart-desktop').html(data.html3)
-            $('.backdrop__body-backdrop___1rvky').addClass('active');
-            $('#popup-cart-desktop').addClass('active');
-         }
-      })
-   })
-</script>
 @endsection
 @section('content')
 <div class="bodywrap">

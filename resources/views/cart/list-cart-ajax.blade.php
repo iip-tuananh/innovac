@@ -28,7 +28,7 @@
                 </div>
                 <div class="grid">
                    <div class="grid__item one-half text-right cart_prices">
-                      <span class="cart-price">{{number_format($discountPrice, '0','','.')}}</span>
+                      <span class="cart-price">{{number_format($discountPrice, '0','','.')}}₫</span>
                    </div>
                 </div>
                 <div class="grid">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="grid">
                    <div class="grid__item one-half text-right cart_prices">
-                      <span class="cart-price">{{number_format($discountPrice * $item['quantity'],0,'','.')}}</span>
+                      <span class="cart-price">{{number_format($discountPrice * $item['quantity'],0,'','.')}}₫</span>
                    </div>
                 </div>
              </div>

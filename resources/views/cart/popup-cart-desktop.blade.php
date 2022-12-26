@@ -69,7 +69,7 @@
                             </div>
                             <div class="grid">
                                 <div class="grid__item one-half text-right cart_prices">
-                                <span class="cart-price">{{number_format($discountPrice*$item['quantity']), 0, '', '.'}}</span>
+                                <span class="cart-price">{{number_format($discountPrice*$item['quantity'], 0, '', '.')}}₫</span>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                 <div class="ajaxcart__subtotal">
                     <div class="cart__subtotal">
                         <div class="cart__col-6">Tổng tiền:</div>
-                        <div class="text-right cart__totle"><span class="total-price">{{number_format($totalPrice,0 ,'','.')}}</span></div>
+                        <div class="text-right cart__totle"><span class="total-price">{{number_format($totalPrice,0 ,'','.')}}₫</span></div>
                     </div>
                 </div>
                 <div class="cart__btn-proceed-checkout-dt">
