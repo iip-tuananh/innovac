@@ -128,10 +128,10 @@ function removeItem(e) {
                                        $totalPrice += $discountPrice * $item['quantity'];
                                        @endphp       
                                        <div class="ajaxcart__product cart_product" data-line="1">
-                                          <a href="" class="ajaxcart__product-image cart_image" title=""><img src="{{$item['image']}}" alt=""></a>
+                                          <a href="{{route('detailProduct',['cate'=>$item['cate_slug'],'slug'=>$item['slug']])}}" class="ajaxcart__product-image cart_image" title=""><img src="{{$item['image']}}" alt=""></a>
                                           <div class="grid__item cart_info">
                                              <div class="ajaxcart__product-name-wrapper cart_name">
-                                                <a href="/iphone-13-pro-max-128gb" class="ajaxcart__product-name h4" title="iPhone 13 Pro Max 128GB">
+                                                <a href="{{route('detailProduct',['cate'=>$item['cate_slug'],'slug'=>$item['slug']])}}" class="ajaxcart__product-name h4" title="{{languageName($item['name'])}}">
                                                    {{languageName($item['name'])}}
                                                 </a>
                                                 <span class="ajaxcart__product-meta variant-title">{{$item['color']}}</span>

@@ -23,8 +23,8 @@
                </div>
                <div class="col-lg-5 d-lg-block d-none menu-top">
              
-                   <a href="/he-thong" title="Hệ thống">Hệ thống</a>
-                   <a href="/hoi-dap" title="Hỏi đáp">Hỏi đáp</a>
+                   <a href="#" title="Hệ thống">Hệ thống</a>
+                   <a href="#" title="Hỏi đáp">Hỏi đáp</a>
                </div>
            </div>
        </div>
@@ -93,46 +93,7 @@
                                <span>Sản phẩm</span>
                            </span>
                        </a>
-                   </div>
-                   {{-- <div class="block-account">
-                       <a href="/account" title="Tài khoản của bạn" rel="nofollow">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="28"
-                               viewBox="0 0 25 28" fill="none">
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M12.3984 2.4C10.4102 2.4 8.79844 4.01178 8.79844 6C8.79844 7.98823 10.4102 9.6 12.3984 9.6C14.3867 9.6 15.9984 7.98823 15.9984 6C15.9984 4.01178 14.3867 2.4 12.3984 2.4ZM6.39844 6C6.39844 2.68629 9.08473 0 12.3984 0C15.7121 0 18.3984 2.68629 18.3984 6C18.3984 9.31371 15.7121 12 12.3984 12C9.08473 12 6.39844 9.31371 6.39844 6Z"
-                                   fill="white" />
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M12.4 16.8C9.85303 16.8 6.3364 17.7237 4.22092 18.5154C3.1234 18.9262 2.4 20.0187 2.4 21.2943V26.8C2.4 27.4628 1.86274 28 1.2 28C0.537258 28 0 27.4628 0 26.8V21.2943C0 19.1234 1.24936 17.065 3.37967 16.2677C5.61835 15.4298 9.443 14.4 12.4 14.4C15.4391 14.4 18.7442 15.4922 21.1681 16.3052C23.4139 17.0584 24.8 19.1827 24.8 21.4724V26.8C24.8 27.4628 24.2627 28 23.6 28C22.9373 28 22.4 27.4628 22.4 26.8V21.4724C22.4 20.1339 21.5989 18.9811 20.4049 18.5806C17.9122 17.7446 14.9809 16.8 12.4 16.8Z"
-                                   fill="white" />
-                           </svg>
-                           <span class="info">
-                               <span>Đăng nhập</span>
-                               <span>Tài khoản</span>
-                           </span>
-                       </a>
-                       <div class="drop-account">
-                           <a href="/account/login">Đăng nhập</a>
-                           <a href="/account/register">Đăng ký</a>
-                       </div>
-                   </div> --}}
-                   {{-- <div class="block-wish">
-                       <a href="/yeu-thich-san-pham" class="wishlist_header" title="Sản phẩm yêu thích">
-                           <span class="icon">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="31" height="29"
-                                   viewBox="0 0 31 29" fill="none">
-                                   <path
-                                       d="M1.63113 14.9237C-0.213996 9.59636 2.09247 2.81615 7.16658 1.36324C9.93428 0.394626 13.6245 1.36319 15.4696 4.26902C17.3147 1.36319 21.0049 0.394626 23.7726 1.36324C29.308 3.30045 31.1532 9.59636 29.3081 14.9237C27.0017 23.1569 17.776 28 15.4696 28C13.1632 27.5157 4.39883 23.6412 1.63113 14.9237Z"
-                                       stroke="white" stroke-width="2" stroke-linecap="round"
-                                       stroke-linejoin="round" />
-                               </svg>
-                               <span class="headerWishlistCount">0</span>
-                           </span>
-                           <span class="info">
-                           
-                               <span>Sản phẩm</span>
-                           </span>
-                       </a>
-                   </div> --}}
+                   </div>    
                    <div class="block-cart">
                        <a href="{{route('listCart')}}" class="header-cart" aria-label="Xem giỏ hàng" title="Giỏ hàng">
                            <span class="icon">

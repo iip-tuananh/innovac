@@ -11,7 +11,7 @@
                     $discountPrice = $item['price'] - $item['price'] * ($item['discount'] / 100);
                     $totalPrice += $discountPrice * $item['quantity'];
                 @endphp
-                    <div class="ajaxcart__product cart_product">
+                    <div class="ajaxcar{{route('detailProduct',['cate'=>$item['cate_slug'],'slug'=>$item['slug']])}}roduct cart_product">
                     <a href="" class="ajaxcart__product-image cart_image" title="{{languageName($item['name'])}}"><img width="80" height="80" src="{{$item['image']}}" alt="{{languageName($item['name'])}}"></a>
                     <div class="grid__item cart_info">
                         <div class="ajaxcart__product-name-wrapper cart_name">

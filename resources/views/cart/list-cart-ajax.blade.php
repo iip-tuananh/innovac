@@ -20,7 +20,7 @@
              <a href="" class="ajaxcart__product-image cart_image" title=""><img src="{{$item['image']}}" alt=""></a>
              <div class="grid__item cart_info">
                 <div class="ajaxcart__product-name-wrapper cart_name">
-                   <a href="/iphone-13-pro-max-128gb" class="ajaxcart__product-name h4" title="iPhone 13 Pro Max 128GB">
+                   <a href="" class="ajaxcart__product-name h4" title="iPhone 13 Pro Max 128GB">
                       {{languageName($item['name'])}}
                    </a>
                    <span class="ajaxcart__product-meta variant-title">{{$item['color']}}</span>

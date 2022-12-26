@@ -8,7 +8,6 @@
     <title>CRM Cubon Web Design</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -21,7 +20,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script>
-      window.__ENV__ = window.__ENV || {}; __ENV__.link ='https://innovacgroup.com/';
+      window.__ENV__ = window.__ENV || {}; __ENV__.link ='http://127.0.0.1:8000/';
       window.Laravel = {!! 
           json_encode([
               'csrf_token' => csrf_token(),

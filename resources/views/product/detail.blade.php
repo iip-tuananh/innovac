@@ -11,6 +11,7 @@ $discountPrice = $product->price - ($product->price * ($product->discount / 100)
 @php
 $imgs = json_decode($product->images);
 $color = json_decode($product->size);
+
 $promotion =  json_decode($product->preserve);
 @endphp
 {{url(''.$imgs[0])}}
@@ -32,6 +33,7 @@ $promotion =  json_decode($product->preserve);
    $('.add_to_cart').click(function(e){
       e.preventDefault();
       var id = $('input[name=id]').val();
+      console.log(id);
       var quantity = $('input[name=quantity]').val();
       var color = $('input[name=color]').val();
       var url = $(this).data('url');
@@ -60,10 +62,7 @@ $promotion =  json_decode($product->preserve);
                <a  href="{{route('home')}}" ><span >Trang chủ</span></a>						
                <span class="mr_lr">&nbsp;/&nbsp;</span>
             </li>
-            <li>
-               <a class="changeurl"  href="/phu-kien"><span >Phụ kiện</span></a>						
-               <span class="mr_lr">&nbsp;/&nbsp;</span>
-            </li>
+          
             <li><strong><span>{{languageName($product->name)}}</span></strong>
             <li>
          </ul>
@@ -79,7 +78,7 @@ $promotion =  json_decode($product->preserve);
                         <div class="swiper-container gallery-top">
                            <div class="swiper-wrapper" id="lightgallery">
                               @foreach ($imgs as $img)
-                              <a class="swiper-slide" data-hash="0" href="//bizweb.dktcdn.net/thumb/1024x1024/100/449/923/products/sp21.jpg?v=1656045776567" title="Click để xem">
+                              <a class="swiper-slide" data-hash="0" href="#" title="Click để xem">
                               <img height="540" width="540" src="{{$img}}" alt="{{$product->name}}" data-image="{{$img}}" class="img-responsive mx-auto d-block swiper-lazy" />
                               </a>
                               @endforeach
@@ -157,9 +156,11 @@ $promotion =  json_decode($product->preserve);
                               <span class="special-price">
                                  <span class="price product-price">{{number_format($product->price,0,'','.')}}₫
                               </span>
-                              @elseif($product->discount == 0 && $product->price==0)
+                              @elseif($product->discount >= 0 && $product->price==0)
                               <span class="special-price">
-                                 <span class="price product-price" style="cursor: pointer">Liên Hệ</span>
+                                 <a href="tel:{{$setting->phone1}}" style="color:orangered">
+                                    <span class="price product-price" style="cursor: pointer">Liên Hệ</span>
+                                 </a>
                               </span>
                               @endif
                            </div>
@@ -205,7 +206,7 @@ $promotion =  json_decode($product->preserve);
                               </div>
                               <div class="clearfix form-group ">
                                  <div class="flex-quantity">
-                                    @if($product->discount == 0 && $product->price==0)
+                                    @if($product->discount >= 0 && $product->price==0)
 
                                     @else
                                     <div class="custom custom-btn-number show">
@@ -224,10 +225,10 @@ $promotion =  json_decode($product->preserve);
                                        Giao hàng tận nơi hoặc nhận tại cửa hàng
                                        </button>
                                        <div class="group-button">
-                                          <a href="#" title="ND Tech">
+                                            <a href="tel:{{$setting->phone1}}">
                                           <span>Trả góp</span> Mua trả góp lãi suất thấp
                                           </a>
-                                          <a href="#" title="ND Tech">
+                                            <a href="tel:{{$setting->phone1}}">
                                           <span>Trả góp qua thẻ</span> Visa, Master, JCB 
                                           </a>
                                        </div>

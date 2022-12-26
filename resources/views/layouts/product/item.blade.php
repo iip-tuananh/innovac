@@ -53,8 +53,8 @@ $discountPrice = $product->price - ($product->price * ($product->discount / 100)
            <div class="actions-secondary">
                <a title="Xem nhanh" href="javascript:void(0)"
                    data-id="{{$product->id}}"
-                   data-url ="{{route('quickview')}}"
-                   class="quick-view btn-views">
+                   data-url ="{{route('quickview',['id'=>$product->id])}}"
+                   class="quick-view-pro btn-views">
                    <svg class="icon">
                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
                            xlink:href="#icon-quickview"></use>
@@ -64,19 +64,3 @@ $discountPrice = $product->price - ($product->price * ($product->discount / 100)
        </div>
    </form>
 </div>
-<script>
-    $('.quick-view').click(function(){
-        var id = $(this).data('id');
-        var url = $(this).data('url');
-        $.ajax({
-            type : 'POST',
-            url : url,
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            data: {id : id},
-            success:function(data){
-                $('#quick-view-product').css("display", "block");
-                $('#quick-view-product').html(data.html);
-            }
-        })
-    })
-</script>

@@ -114,7 +114,7 @@
 
                     <div class="block-title">
                         <h2>
-                            <a href="san-pham-noi-bat" title="Thương hiệu">Thương hiệu</a>
+                            <a href="#" title="Thương hiệu">Thương hiệu</a>
                         </h2>
 
                     </div>
@@ -127,11 +127,10 @@
                                         <div class="item_product_main">
                                             <a class="variants product-action ">
                                                 <div class="product-thumbnail">
-                                                    <a class="image_thumb scale_hover" href="/iphone-13-pro-max-256gb"
-                                                        title="iPhone 13 Pro Max 256GB">
+                                                    <a class="image_thumb scale_hover" href="{{route('listProductBrand',['slug'=>$brand->slug])}}" title="">
                                                         <img class="lazyload"
                                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                                            data-src="{{ $brand->image }}" alt="iPhone 13 Pro Max 256GB">
+                                                            data-src="{{ $brand->image }}" alt="">
                                                     </a>
 
                                                     <div class="actions-primary">
@@ -371,7 +370,7 @@
                                 @if (count($cate->typeCate) > 0)
                                     <div class="link-list">
                                         @foreach ($cate->typeCate as $type)
-                                            <a href="/samsung"
+                                            <a href="{{route('allListProType',['cate'=>$type->cate_slug,'type'=>$type->slug])}}"
                                                 title="{{ languageName($type->name) }}">{{ languageName($type->name) }}</a>
                                         @endforeach
                                     </div>
@@ -396,7 +395,7 @@
                                     <a href="#" class="thumb image_hover" title="ND Tech">
                                         <img class="lazyload" width="377" height="534"
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                            data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/img_banner_1.jpg?1670831590614"
+                                            data-src="{{$cate->imagehome}}"
                                             alt="ND Tech">
                                     </a>
                                 </div>
@@ -455,13 +454,12 @@
                         <div class="container">
                             <div class="block-title">
                                 <h2>
-                                    <a href="dien-thoai"
-                                        title="{{ languageName($cate->name) }}">{{ languageName($cate->name) }}</a>
+                                    <a href="{{route('allListProCate',['cate'=>$cate->slug])}}" title="{{ languageName($cate->name) }}">{{ languageName($cate->name) }}</a>
                                 </h2>
                                 @if (count($cate->typeCate) > 0)
                                     <div class="link-list">
                                         @foreach ($cate->typeCate as $type)
-                                            <a href="/samsung" title="{{ languageName($type->name) }}">{{ languageName($type->name) }}</a>
+                                            <a href="{{route('allListProType',['cate'=>$type->cate_slug,'type'=>$type->slug])}}" title="{{ languageName($type->name) }}">{{ languageName($type->name) }}</a>
                                         @endforeach
                                     </div>
                                 @endif
@@ -485,7 +483,7 @@
                                     <a href="#" class="thumb image_hover" title="ND Tech">
                                         <img class="lazyload" width="377" height="534"
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                            data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/img_banner_2.jpg?1670831590614"
+                                            data-src="{{$cate->imagehome}}"
                                             alt="ND Tech">
                                     </a>
                                 </div>

@@ -44,7 +44,7 @@ class ProductController extends Controller
             }
         }
         $data['brands'] = $listBrand;
-        $data['cateid'] = $cate_id;
+        $data['cate_id'] = $cate_id;
         $data['title'] = languageName($data['cateno']->name);
         $data['content'] = $data['cateno']->content;
         return view('product.list',$data);
@@ -71,6 +71,7 @@ class ProductController extends Controller
         $data['title'] = languageName($data['cateno']->name);
         $data['cateid'] = 0;
         $data['content'] = $data['cateno']->content;
+        $data['type_id'] = $data['cateno']->id;
         return view('product.list',$data);
     }
     public function allListTypeTwo($cate,$typecate,$typetwo){
@@ -169,9 +170,12 @@ class ProductController extends Controller
                     $product = $product->where('category',$request->cate)->orderBy('price','ASC');
                 }
             }
-        }else{
+            if(isset($request->brand)) {
+                $product = $product->where('category',$request->cate)->where('brand_id',$request->brand);
+            }
+        }elseif($request->type != null){
             if(isset($request->price)){
-                if($request->price == '<1trieu'){
+                if($request->price == '<2trieu'){
                     $product = $product->where('type_cate',$request->type)->where('price', '<', 1000000);
                 }elseif($request->price == '1-2trieu'){
                     $product = $product->where('type_cate',$request->type)->whereBetween('price', [1000000, 2000000]);
@@ -201,11 +205,49 @@ class ProductController extends Controller
                     $product = $product->where('type_cate',$request->type)->orderBy('price','ASC');
                 }
             }
+            if(isset($request->brand)) {
+                $product = $product->where('type_cate',$request->type)->where('brand_id',$request->brand);
+            }
+        }else{
+            if(isset($request->price)){
+                if($request->price == '<1trieu'){
+                    $product = $product->where('brand_id',$request->brand)->where('price', '<', 1000000);
+                }elseif($request->price == '1-2trieu'){
+                    $product = $product->where('brand_id',$request->brand)->whereBetween('price', [1000000, 2000000]);
+                }elseif($request->price == '2-3trieu'){
+                    $product = $product->where('brand_id',$request->brand)->whereBetween('price', [2000000, 3000000]);
+                }elseif($request->price == '3-5trieu'){
+                    $product = $product->where('brand_id',$request->brand)->whereBetween('price', [3000000, 5000000]);
+                }elseif($request->price == '5-8trieu'){
+                    $product = $product->where('brand_id',$request->brand)->whereBetween('price', [5000000, 8000000]);
+                }elseif($request->price == '8-10trieu'){
+                    $product = $product->where('brand_id',$request->brand)->whereBetween('price', [8000000, 10000000]);
+                }
+                else{
+                    $product = $product->where('brand_id',$request->brand)->where('price', '>', 10000000);
+                }
+            }
+            if(isset($request->sortby)){
+                if($request->sortby == 'DESC'){
+                    $product = $product->where('brand_id',$request->brand)->orderBy('discount','DESC');
+                }elseif($request->sortby == 'ASC'){
+                    $product = $product->where('brand_id',$request->brand)->orderBy('discount','ASC');
+                }elseif($request->sortby == 'new'){
+                    $product = $product->where('brand_id',$request->brand)->orderBy('id','DESC');
+                }elseif($request->sortby == 'PRICE_DESC'){
+                    $product = $product->where('brand_id',$request->brand)->orderBy('price','DESC');
+                }elseif($request->sortby == 'PRICE_ASC'){
+                    $product = $product->where('brand_id',$request->brand)->orderBy('price','ASC');
+                }
+            }
+            if(isset($request->brand)) {
+                $product = $product->where('brand_id',$request->brand);
+            }
         }
         
         $product = $product->get();
-        $view = view("layouts.product.filter",compact('product'))->render();
 
+        $view = view("layouts.product.filter",compact('product'))->render();
         return response()->json(['html'=>$view]);
     }
     public function detail_product($cate,$slug)
@@ -357,12 +399,10 @@ class ProductController extends Controller
         return view('product.list-product-sale', $data);
     }
 
-    public function quickview(Request $request)
+    public function quickview(Request $request,$id)
     {
         $id = $request->id;
-    
-        $data['product'] = Product::findOrFail($id);
-        
+        $data['product'] = Product::with('brand')->findOrFail($id);
         $view = view('layouts.product.quickview', $data)->render();
         return response()->json([
             'html' => $view
