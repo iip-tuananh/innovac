@@ -31,8 +31,8 @@
                   <vs-td v-if="tr.type_cate == null">-----</vs-td>
                   <!-- <vs-td v-if="tr.type_two != null">{{JSON.parse(tr.type_two.name)[0].content}}</vs-td>
                   <vs-td v-if="tr.type_two == null">-----</vs-td> -->
-                  <vs-td v-if="tr.brand_id != null">{{tr.brand.name}}</vs-td>
-                  <vs-td v-if="tr.brand_id == null">-----</vs-td>
+                  <vs-td v-if="tr.brand != null">{{tr.brand.name}}</vs-td>
+                  <vs-td v-if="tr.brand == null">-----</vs-td>
                   <!-- <vs-td >{{tr.qty}}</vs-td> -->
                   <vs-td >
                     <router-link :to="{name:'edit_product',params:{id:tr.id}}">
