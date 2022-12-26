@@ -1,75 +1,78 @@
+
 @if (count($cart) > 0)
-<form novalidate="" class="cart ajaxcart cartpage">
-    <div class="cart-header-info">
-       <div>Thông tin sản phẩm</div>
-       <div>Đơn giá</div>
-       <div>Số lượng</div>
-       <div>Thành tiền</div>
-    </div>
-    <div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items">
-       <div class="ajaxcart__row data-update-cart" data-url="{{route('updateCart')}}">
-          @php
-          $totalPrice = 0 ;
-          @endphp
-          @foreach ($cartcontent as $item)
-          @php
-          $discountPrice = $item['price']-$item['price']*($item['discount']/100);
-          $totalPrice += $discountPrice * $item['quantity'];
-          @endphp       
-          <div class="ajaxcart__product cart_product" data-line="1">
-             <a href="" class="ajaxcart__product-image cart_image" title=""><img src="{{$item['image']}}" alt=""></a>
-             <div class="grid__item cart_info">
-                <div class="ajaxcart__product-name-wrapper cart_name">
-                   <a href="" class="ajaxcart__product-name h4" title="iPhone 13 Pro Max 128GB">
-                      {{languageName($item['name'])}}
-                   </a>
-                   <span class="ajaxcart__product-meta variant-title">{{$item['color']}}</span>
-                   <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" onclick="removeItemCart({{$item['id']}})" data-url="{{route('removeCart')}}">Xóa</a>
-                </div>
-                <div class="grid">
-                   <div class="grid__item one-half text-right cart_prices">
-                      <span class="cart-price">{{number_format($discountPrice, '0','','.')}}₫</span>
-                   </div>
-                </div>
-                <div class="grid">
-                   <div class="grid__item one-half cart_select">
-                      <div class="ajaxcart__qty input-group-btn">
-                         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count"  aria-label="-" onclick="btnMinus({{$item['id']}})">
-                         -
-                         </button>
-                         <input type="text" name="updates[]" id="qty{{$item['id']}}"  class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{$item['quantity']}}" min="0" data-id="" data-line="1" aria-label="quantity" pattern="[0-9]*">
-                         <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count"  aria-label="+" onclick="btnPlus({{$item['id']}})">
-                         +							
-                         </button>
-                      </div>
-                   </div>
-                </div>
-                <div class="grid">
-                   <div class="grid__item one-half text-right cart_prices">
-                      <span class="cart-price">{{number_format($discountPrice * $item['quantity'],0,'','.')}}₫</span>
-                   </div>
-                </div>
-             </div>
-          </div>
-          @endforeach
-       </div>
-    </div>
-    <div class="ajaxcart__footer ajaxcart__footer--fixed cart-footer">
-       <div class="row">
-          <div class="col-lg-4 col-12 offset-md-8 offset-lg-8 offset-xl-8">
-             <div class="ajaxcart__subtotal">
-                <div class="cart__subtotal">
-                   <div class="cart__col-6">Tổng tiền:</div>
-                   <div class="text-right cart__totle"><span class="total-price">{{number_format($totalPrice,0,'','.')}}₫</span></div>
-                </div>
-             </div>
-             <div class="cart__btn-proceed-checkout-dt">
-                <button onclick="location.href='{{route('checkout')}}'" type="button" class="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
-             </div>
-          </div>
-       </div>
-    </div>
-</form>
+
+   <form novalidate="" class="cart ajaxcart cartpage">
+      <div class="cart-header-info">
+         <div>Thông tin sản phẩm</div>
+         <div>Đơn giá</div>
+         <div>Số lượng</div>
+         <div>Thành tiền</div>
+      </div>
+      <div class="ajaxcart__inner ajaxcart__inner--has-fixed-footer cart_body items">
+         <div class="ajaxcart__row data-update-cart" data-url="{{route('updateCart')}}">
+            @php
+            $totalPrice = 0 ;
+            @endphp
+            @foreach ($cartcontent as $item)
+            @php
+            $discountPrice = $item['price']-$item['price']*($item['discount']/100);
+            $totalPrice += $discountPrice * $item['quantity'];
+            @endphp       
+            <div class="ajaxcart__product cart_product" data-line="1">
+               <a href="" class="ajaxcart__product-image cart_image" title=""><img src="{{$item['image']}}" alt=""></a>
+               <div class="grid__item cart_info">
+                  <div class="ajaxcart__product-name-wrapper cart_name">
+                     <a href="" class="ajaxcart__product-name h4" title="iPhone 13 Pro Max 128GB">
+                        {{languageName($item['name'])}}
+                     </a>
+                     <span class="ajaxcart__product-meta variant-title">{{$item['color']}}</span>
+                     <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" onclick="removeItemCart({{$item['id']}})" data-url="{{route('removeCart')}}">Xóa</a>
+                  </div>
+                  <div class="grid">
+                     <div class="grid__item one-half text-right cart_prices">
+                        <span class="cart-price">{{number_format($discountPrice, '0','','.')}}₫</span>
+                     </div>
+                  </div>
+                  <div class="grid">
+                     <div class="grid__item one-half cart_select">
+                        <div class="ajaxcart__qty input-group-btn">
+                           <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--minus items-count"  aria-label="-" onclick="btnMinus({{$item['id']}})">
+                           -
+                           </button>
+                           <input type="text" name="updates[]" id="qty{{$item['id']}}"  class="ajaxcart__qty-num number-sidebar" maxlength="3" value="{{$item['quantity']}}" min="0" data-id="" data-line="1" aria-label="quantity" pattern="[0-9]*">
+                           <button type="button" class="ajaxcart__qty-adjust ajaxcart__qty--plus items-count"  aria-label="+" onclick="btnPlus({{$item['id']}})">
+                           +							
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="grid">
+                     <div class="grid__item one-half text-right cart_prices">
+                        <span class="cart-price">{{number_format($discountPrice * $item['quantity'],0,'','.')}}₫</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            @endforeach
+         </div>
+      </div>
+      <div class="ajaxcart__footer ajaxcart__footer--fixed cart-footer">
+         <div class="row">
+            <div class="col-lg-4 col-12 offset-md-8 offset-lg-8 offset-xl-8">
+               <div class="ajaxcart__subtotal">
+                  <div class="cart__subtotal">
+                     <div class="cart__col-6">Tổng tiền:</div>
+                     <div class="text-right cart__totle"><span class="total-price">{{number_format($totalPrice,0,'','.')}}₫</span></div>
+                  </div>
+               </div>
+               <div class="cart__btn-proceed-checkout-dt">
+                  <button onclick="location.href='{{route('checkout')}}'" type="button" class="button btn btn-default cart__btn-proceed-checkout" id="btn-proceed-checkout" title="Thanh toán">Thanh toán</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </form>
+
 @else
 <div class="row">
     <div class="col-lg-12 col-12 col-cart-left">
@@ -139,7 +142,7 @@
                       <g> </g>
                       <g> </g>
                    </svg>
-                   <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
+                   <p>Không có sản phẩm nào trong giỏ hàng của bạn </p>
                 </div>
              </div>
           </div>

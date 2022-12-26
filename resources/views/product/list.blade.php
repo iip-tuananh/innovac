@@ -191,8 +191,8 @@ Danh sách {{$title}}
             <div class="block-collection col-lg-9 col-12 padding-10">
                <div class="banner-collection">
                   <a class="image_hover" href="#" title="Banner collection">
-                  <img class="lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"  
-                     data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/banner-collection.png?1670831590614" alt="Banner collection"/>
+                  <img class="lazyload" src="{{$cate->imagehome}}"  
+                     alt="Banner collection"/>
                   </a>
                </div>
                <div class="category-products">
@@ -202,9 +202,10 @@ Danh sách {{$title}}
                            <label class="left">Sắp xếp theo</label>
                            <ul class="ul_col">
                               <li>
-                                 <span>
-                                 Mặc định 
-                                 </span>
+                               
+                                <p class="test-aa">   Mặc định </p>
+                              
+                         
                                  <ul class="content_ul">
                                     <li><a href="javascript:;" onclick="sort('discount-asc')" >Phần trăm giảm dần</a></li>
                                     <li><a href="javascript:;" onclick="sort('discount-desc')" >Phần trăm tăng dần</a></li>

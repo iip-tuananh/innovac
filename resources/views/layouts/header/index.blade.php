@@ -73,7 +73,7 @@
                        </form>
                    </div>
                </div>
-               <div class="col-lg-3 col-md-12 col-12 col-cart-account-wish">
+               <div class="col-lg-3 col-md-12 col-12 col-cart-account-wish header-text">
                    <div class="block-account menu-bar d-lg-none d-block">
                        <a href="javascript:;" title="Tài khoản của bạn" rel="nofollow">
                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
@@ -112,7 +112,7 @@
                                <span class="count_item_pr">0</span>
                                @endif
                            </span>
-                           <span class="info">
+                           <span class="info header-text">
                                <span>Giỏ hàng</span>
                                <span>Của bạn</span>
                            </span>

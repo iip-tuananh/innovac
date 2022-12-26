@@ -237,33 +237,34 @@ $promotion =  json_decode($product->preserve);
             </div>
          </div>
       </div>
-      @if (count($productlq) > 1)
-      <div class="productRelate">
-         <div class="container">
-            <div class="block-title">
-               <h2>
-                  <a href="#" title="Sản phẩm cùng loại">Sản phẩm cùng loại</a>
-               </h2>
-            </div>
-            <div class="margin-am">
-               <div class="product-relate-swiper swiper-container">
-                  <div class="swiper-wrapper">
-                     @foreach ($productlq as $pro)
-                     @if ($pro->id != $product->id)
-                        <div class="swiper-slide">
-                           @include('layouts.product.item',['product'=>$pro])
-                        </div>
-                     @endif
-                     @endforeach
-                  </div>
-                  <div class="swiper-button-prev"></div>
-                  <div class="swiper-button-next"></div>
+   
+   </section>
+   @if (count($productlq) > 1)
+   <div class="productRelate">
+      <div class="container">
+         <div class="block-title">
+            <h2>
+               <a href="#" title="Sản phẩm cùng loại">Sản phẩm cùng loại</a>
+            </h2>
+         </div>
+         <div class="margin-am">
+            <div class="product-relate-swiper swiper-container">
+               <div class="swiper-wrapper">
+                  @foreach ($productlq as $pro)
+                  @if ($pro->id != $product->id)
+                     <div class="swiper-slide">
+                        @include('layouts.product.item',['product'=>$pro])
+                     </div>
+                  @endif
+                  @endforeach
                </div>
+               <div class="swiper-button-prev"></div>
+               <div class="swiper-button-next"></div>
             </div>
          </div>
       </div>
-      @endif
-   </section>
+   </div>
+   @endif
    {{-- choice color --}}
    <script>
     $(document).ready(function(){

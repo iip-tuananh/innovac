@@ -211,6 +211,7 @@
                     $('.top-cart-content').html(data.html1);
                     $('.count_item_pr').html(data.html2);
                     $('.CartPageContainer').html(data.html3);
+                    $('.CartMobileContainer').html(data.html6);
                     $('#popup-cart-desktop').html(data.html4);
                 }
             })
@@ -228,6 +229,7 @@
                     $('.top-cart-content').html(data.html1);
                     $('.count_item_pr').html(data.html2);
                     $('.CartPageContainer').html(data.html3);
+                    $('.CartMobileContainer').html(data.html6);
                     $('#popup-cart-desktop').html(data.html4);
                 }
             })
@@ -243,6 +245,7 @@
                     $('.top-cart-content').html(data.html1);
                     $('.count_item_pr').html(data.html2);
                     $('.CartPageContainer').html(data.html3);
+                    $('.CartMobileContainer').html(data.html6);
                     $('#popup-cart-desktop').html(data.html4);
                 }
             })
