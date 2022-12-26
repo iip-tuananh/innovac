@@ -3230,7 +3230,7 @@ li.page-item.active {
 
  }
  .dropdown-search-ajax {
-    min-width: 570px !important;
+    min-width: 100%!important;
     background-color: rgb(177, 143, 143);
 }
 .click-color.active {
@@ -3306,4 +3306,9 @@ p.test-aa {
 }
 .bg-index {
     background: #e1e1e1 !important;
+}
+@media only screen and (max-width: 600px){
+    .hidden-custome{
+        display: none !important;
+    }
 }

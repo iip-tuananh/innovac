@@ -264,8 +264,8 @@
                               
                            </div>
                        </div>
-                       <div class="col-lg-4 col-md-4 col-2 col-footer">
-                           <div class="tuvan-khieunai">
+                       <div class="col-lg-4 col-md-4 col-2 col-footer ">
+                           <div class="tuvan-khieunai hidden-custome">
                                <h4 class="title-menu">
                                    TƯ VẤN & KHIẾU NẠI
                                    <span class="Collapsible__Plus"></span>
@@ -291,7 +291,7 @@
                                    </div>
                                </div>
                            </div>
-                           <div class="payment">
+                           <div class="payment hidden-custome">
                                <h4 class="title-menu">
                                    HÌNH THỨC THANH TOÁN
                                    <span class="Collapsible__Plus"></span>

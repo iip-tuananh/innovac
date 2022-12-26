@@ -38,7 +38,7 @@
                            src="{{url($setting->logo)}}">
                    </a>
                </div>
-               <div class="col-lg-6 col-md-12 col-12  block-search">
+               <div class="col-lg-7 col-md-12 col-12  block-search">
                    <div class="header_search">
                        <form class="input-group search-bar"  method="POST"  action="{{route('search_result')}}" data-url="{{route('search_ajax')}}">
                         @csrf
@@ -73,7 +73,7 @@
                        </form>
                    </div>
                </div>
-               <div class="col-lg-3 col-md-12 col-12 col-cart-account-wish header-text">
+               <div class="col-lg-2 col-md-12 col-12 col-cart-account-wish header-text">
                    <div class="block-account menu-bar d-lg-none d-block">
                        <a href="javascript:;" title="Tài khoản của bạn" rel="nofollow">
                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
@@ -295,7 +295,7 @@
                <div class="col-lg-9 col-10 col-menu">
                    <nav class="header-nav">
                        <ul class="item_big">
-                           <li class="nav-item active ">
+                           <li class="nav-item">
                                <a class="a-img" href="{{route('home')}}" title="Trang chủ">
                                    Trang chủ
                                </a>
