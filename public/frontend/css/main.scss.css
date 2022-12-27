@@ -3157,7 +3157,7 @@ header .col-cart-account-wish .block-cart>a .info span .headerWishlistCount {
     background-image: none !important;
 }
 .image_cate{
-    position: absolute;
+    position: relative;
     z-index: 1;
     height: 100%;
 }

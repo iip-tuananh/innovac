@@ -194,7 +194,8 @@
                     }
                 });
             </script>
-            <div class="section_category">
+            {{-- danh mục phổ biên --}}
+            {{-- <div class="section_category">
                 <div class="container">
                     <div class="block-title">
                         <h2>
@@ -208,7 +209,7 @@
                                     <div class="swiper-slide item image_cate">
                                         <div class="box_cate">
                                             <div class="img-cate">
-                                                <img src="{{ $cate->avatar }}" alt="">
+                                                <img src="{{ $cate->avatar }}" alt="{{languageName($cate->name)}}">
                                             </div>
                                             <div class="info info_cate ">
                                                 <h3>
@@ -230,7 +231,7 @@
             </div>
             <script>
                 var swiperwish = new Swiper('.cate-swiper', {
-                    slidesPerView: 5,
+                    slidesPerView: 4,
                     loop: false,
                     grabCursor: true,
                     spaceBetween: 20,
@@ -267,12 +268,12 @@
                             spaceBetween: 20
                         },
                         1200: {
-                            slidesPerView: 5,
+                            slidesPerView: 4,
                             spaceBetween: 20
                         }
                     }
                 });
-            </script>
+            </script> --}}
             <div class="section_deal_hot">
                 <div class="container">
                     <div class="block-title">

@@ -47,7 +47,7 @@ class ProductController extends Controller
         $data['cate_id'] = $cate_id;
         $data['title'] = languageName($data['cateno']->name);
         $data['content'] = $data['cateno']->content;
-        $data['bannerCate'] = $data['cateno']->imagehome;
+        $data['bannerCate'] = $data['cateno']->avatar;
         return view('product.list',$data);
     }
     public function allListType($cate,$typecate){
