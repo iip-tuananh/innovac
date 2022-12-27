@@ -17,6 +17,7 @@ $promotion =  json_decode($product->preserve);
 {{url(''.$imgs[0])}}
 @endsection
 @section('css')
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 <link rel="preload" as='style'  type="text/css" href="{{asset('frontend/css/product_style.scss.css')}}">
 <link href="{{asset('frontend/css/product_style.scss.css')}}" rel="stylesheet" type="text/css"/>
 
@@ -155,7 +156,9 @@ $promotion =  json_decode($product->preserve);
                                  <div class="box-promotion">
                                     <ul>
                                        @foreach ($promotion as $item)
-                                       <li>{{$item->detail}}</li>
+                                          <li>
+                                             <i class="bi bi-check-all check-custom"></i>&nbsp;&nbsp;{{$item->detail}}
+                                          </li>
                                        @endforeach
                                     </ul>
                                  </div>

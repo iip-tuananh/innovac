@@ -48,7 +48,9 @@
     <link rel="preload" as='style' type="text/css" href="{{ asset('frontend/css/bootstrap-4-3-min.css') }}">
     <link rel="preload" as='style' type="text/css" href="{{ asset('frontend/css/quickviews_popup_cart.scss.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/toastr.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/snow.style.css')}}">
     <script src="{{asset('frontend/js/toastr.min.js')}}"></script>
+    
     @yield('css')
     <style>
         :root {
@@ -117,6 +119,27 @@
 </head>
 
 <body>
+    {{-- tuyết --}}
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+    </div>
+    {{-- end tuyết --}}
     <div class="opacity_menu"></div>
     @include('layouts.header.index')
     @yield('content')

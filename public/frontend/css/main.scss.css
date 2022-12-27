@@ -3268,10 +3268,14 @@ li.page-item.active {
 .side-bar-right .content a, li {
     list-style: none;
     text-decoration: none;
-    display: block;
+    /* display: block; */
     padding: 0 auto;
     color: var(--color-a);
     padding-bottom: 10px;
+}
+#content ul li{
+    list-style-type: disc !important;
+
 }
 #search_ajax ul.dropdown-search-ajax li {
     list-style: none;
@@ -3307,6 +3311,11 @@ p.test-aa {
 }
 .bg-index {
     background: #e1e1e1 !important;
+}
+.check-custom{
+    color: rgb(255, 0, 0) !important;
+    font-size: 25px !important;
+   transform: translateX(50px);
 }
 @media only screen and (max-width: 600px){
     .hidden-custome{
