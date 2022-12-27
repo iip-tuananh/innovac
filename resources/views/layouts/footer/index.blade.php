@@ -5,7 +5,7 @@
              <div class="swiper-slide">
                 <div class="icon">
                    <img class="lazyload" width="50" height="50" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="  
-                      data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_service_1.png?1670831590614" alt="ND Tech">
+                      data-src="{{url('frontend/img/icon_service_1.png')}}" alt="Innovac">
                 </div>
                 <div class="info">
                    <h3>
@@ -19,7 +19,7 @@
              <div class="swiper-slide">
                 <div class="icon">
                    <img class="lazyload" width="50" height="50" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="  
-                      data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_service_2.png?1670831590614" alt="ND Tech">
+                      data-src="{{url('frontend/img/icon_service_2.png')}}" alt="Innovac">
                 </div>
                 <div class="info">
                    <h3>
@@ -33,7 +33,7 @@
              <div class="swiper-slide">
                 <div class="icon">
                    <img class="lazyload" width="50" height="50" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="  
-                      data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_service_3.png?1670831590614" alt="ND Tech">
+                      data-src="{{url('frontend/img/icon_service_3.png')}}" alt="Innovac">
                 </div>
                 <div class="info">
                    <h3>
@@ -47,7 +47,7 @@
              <div class="swiper-slide">
                 <div class="icon">
                    <img class="lazyload" width="50" height="50" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="  
-                      data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_service_4.png?1670831590614" alt="ND Tech">
+                      data-src="{{url('frontend/img/icon_service_4.png')}}" alt="Innovac">
                 </div>
                 <div class="info">
                    <h3>
@@ -131,9 +131,10 @@
                        <h4 class="title-menu " style="font-size: 12px">
                            Đăng ký để nhận tin tức khuyến mãi mới nhất
                        </h4>
-                       <form id="mc-form" class="newsletter-form" data-toggle="validator">
+                       <form id="mc-form" action="{{route('postcontact')}}" class="newsletter-form" data-toggle="validator" method="POST">
+                        @csrf
                            <input aria-label="Địa chỉ Email" type="email" class="form-control"
-                               placeholder="Nhập địa chỉ email" name="EMAIL" required
+                               placeholder="Nhập địa chỉ email" name="email" required
                                autocomplete="off" />
                            <button class="btn btn-default" type="submit" aria-label="Đăng ký nhận tin"
                                name="subscribe">Gửi</button>
@@ -300,26 +301,26 @@
                                    <div class="item">
                                        <img class="lazyload" width="67" height="34"
                                            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                           data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_payment_1.png?1670831590614"
-                                           alt="ND Tech">
+                                           data-src="{{url('frontend/img/icon_payment_1.png')}}"
+                                           alt="Innovac">
                                    </div>
                                    <div class="item">
                                        <img class="lazyload" width="67" height="34"
                                            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                           data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_payment_2.png?1670831590614"
-                                           alt="ND Tech">
+                                           data-src="{{url('frontend/img/icon_payment_2.png')}}"
+                                           alt="Innovac">
                                    </div>
                                    <div class="item">
                                        <img class="lazyload" width="67" height="34"
                                            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                           data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_payment_3.png?1670831590614"
-                                           alt="ND Tech">
+                                           data-src="{{url('frontend/img/icon_payment_3.png')}}"
+                                           alt="Innovac">
                                    </div>
                                    <div class="item">
                                        <img class="lazyload" width="67" height="34"
                                            src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                                           data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/icon_payment_4.png?1670831590614"
-                                           alt="ND Tech">
+                                           data-src="{{url('frontend/img/icon_payment_4.png')}}"
+                                           alt="Innovac">
                                    </div>
                                </div>
                            </div>
