@@ -32,7 +32,7 @@ class ProductController extends Controller
         ->orderBy('id','DESC')
         ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug', 'size', 'description')
         ->paginate(16);
-        $data['cateno'] = Category::where('slug',$cate)->first(['id','name','avatar','content','slug']);
+        $data['cateno'] = Category::where('slug',$cate)->first(['id','name','avatar','content','slug','imagehome']);
         $allBrands = ProductBrands::where('status', 1)->get();
         $listBrand = [];
         $cate_id = $data['cateno']->id;
@@ -47,6 +47,7 @@ class ProductController extends Controller
         $data['cate_id'] = $cate_id;
         $data['title'] = languageName($data['cateno']->name);
         $data['content'] = $data['cateno']->content;
+        $data['bannerCate'] = $data['cateno']->imagehome;
         return view('product.list',$data);
     }
     public function allListType($cate,$typecate){

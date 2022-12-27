@@ -114,11 +114,9 @@
 
                     <div class="block-title">
                         <h2>
-                            <a href="#" title="Thương hiệu">Thương hiệu</a>
+                            <a  title="Thương hiệu">Thương hiệu</a>
                         </h2>
-
                     </div>
-
                     <div class="block-product">
                         <div class="product-featured-swiper swiper-container">
                             <div class="swiper-wrapper">
@@ -148,8 +146,9 @@
                         </div>
                     </div>
                 </div>
-
+           
             </section>
+            
             <script>
                 var swiperwish = new Swiper('.product-featured-swiper', {
                     slidesPerView: 6,
@@ -326,7 +325,7 @@
                 <div class="container">
                     <div class="block-title">
                         <h2>
-                            <a href="san-pham-noi-bat" title="Sản phẩm nổi bật">
+                            <a  title="Sản phẩm nổi bật">
                                 Khuyến mãi đặc biệt
                             </a>
                         </h2>
@@ -351,8 +350,7 @@
                         <div class="container">
                             <div class="block-title">
                                 <h2>
-                                    <a href="dien-thoai"
-                                        title="{{ languageName($cate->name) }}">{{ languageName($cate->name) }}</a>
+                                    <a href="{{route('allListProCate',['cate'=>$cate->slug])}}" title="{{ languageName($cate->name) }}">{{ languageName($cate->name) }}</a>
                                 </h2>
                                 @if (count($cate->typeCate) > 0)
                                     <div class="link-list">
@@ -368,6 +366,7 @@
                                     <div class="block-product">
                                         <div class="product-1-swiper swiper-container">
                                             <div class="swiper-wrapper">
+                                           
                                                 @foreach ($cate->product as $product)
                                                     <div class="swiper-slide">
                                                         @include('layouts.product.item', ['product' => $product])
@@ -526,7 +525,7 @@
                     </script>
                 @endif
             @endif
-            @endforeach
+        @endforeach
             <section class="section_one_banner">
                 <a href="#" class="thumb" title="{{$setting->company}}">
                     <img class="lazyload" width="1920" height="212"
@@ -559,7 +558,7 @@
                                                     </div>
                                                     <div class="block-content">
                                                         <h3>
-                                                            <a href="{{route('detailBlog',['slug'=>$blog->slug])}}"">{{languageName($blog->title)}}</a>
+                                                            <a href="{{route('detailBlog',['slug'=>$blog->slug])}}">{{languageName($blog->title)}}</a>
                                                         </h3>
                                                         <div class="post">
                                                             <div class="time-post f">

@@ -186,15 +186,16 @@ Danh sách {{$title}}
                      </div>
                   </div>
                </div>
-                 
             </aside>
             <div class="block-collection col-lg-9 col-12 padding-10">
+               @if (isset($bannerCate))
                <div class="banner-collection">
                   <a class="image_hover" href="#" title="Banner collection">
-                  <img class="lazyload" src="{{$cate->imagehome}}"  
+                  <img class="lazyload" src="{{$bannerCate}}"  
                      alt="Banner collection"/>
                   </a>
-               </div>
+               </div>    
+               @endif
                <div class="category-products">
                   <div class="sortPagiBar clearfix">
                      <div class="sort-cate clearfix">
