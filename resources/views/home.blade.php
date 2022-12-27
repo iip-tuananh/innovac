@@ -9,31 +9,9 @@
     {{ url('' . $banners[0]->image) }}
 @endsection
 @section('css')
-    <link rel='stylesheet' href='{{ asset('frontend/css/owl.carousel.min.css') }}' type='text/css' />
-    <link rel='stylesheet' href='{{ asset('frontend/css/owl.theme.default.min.css') }}' type='text/css' />
 @endsection
 @section('js')
-    <script type='text/javascript' src='{{ asset('frontend/js/owl.carousel.min.js') }}'></script>
-    <script>
-        $('.home-banner').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: false,
-            dots: false,
-            autoplay: true,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 1
-                }
-            }
-        })
-    </script>
+   
 @endsection
 @section('content')
     <div class="bodywrap">
@@ -531,7 +509,7 @@
                 <a href="#" class="thumb" title="{{$setting->company}}">
                     <img class="lazyload" width="1920" height="212"
                         src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
-                        data-src="//bizweb.dktcdn.net/100/449/923/themes/875305/assets/img_one_banner.jpg?1670831590614"
+                        data-src="{{url('frontend/img/img_one_banner.jpg')}}"
                         alt="{{$setting->company}}">
                 </a>
             </section>

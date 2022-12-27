@@ -147,42 +147,7 @@
                            <div class="mailchimp-error"></div>
                            <!-- mailchimp-error end -->
                        </div>
-                       <script>
-                           $('#mc-form').ajaxChimp({
-                               language: 'en',
-                               callback: mailChimpResponse,
-                               url: 'https://facebook.us7.list-manage.com/subscribe/post?u=97ba6d3ba28239250923925a8&id=4ef3a755a8'
-                           });
-
-                           function mailChimpResponse(resp) {
-                               if (resp.result === 'success') {
-                                   if (resp.msg == 'Thank you for subscribing!') {
-                                       $('.mailchimp-success').html('Cảm ơn bạn đã đăng ký!').fadeIn(900);
-                                   } else {
-                                       $('.mailchimp-success').html('' + resp.msg).fadeIn(900);
-                                   }
-                                   $('.mailchimp-error').fadeOut(100);
-                               } else if (resp.result === 'error') {
-                                   if (resp.msg == '0 - Please enter a value') {
-                                       $('.mailchimp-error').html('Vui lòng nhập các trường thông tin').fadeIn(900);
-                                   } else if (resp.msg == '0 - An email address must contain a single @') {
-                                       $('.mailchimp-error').html('Địa chỉ email phải chứa ký tự @').fadeIn(900);
-                                   } else if (resp.msg == 'This email cannot be added to this list. Please enter a different email address.') {
-                                       $('.mailchimp-error').html(
-                                               'Email này không thể được thêm vào danh sách này. Vui lòng nhập một địa chỉ email khác.')
-                                           .fadeIn(900);
-                                   } else if (resp.msg.includes('0 - The domain portion of the email address is invalid')) {
-                                       $('.mailchimp-error').html('Phần tên miền của địa chỉ email không hợp lệ').fadeIn(900);
-                                   } else if (resp.msg.includes('0 - The username portion of the email address is empty')) {
-                                       $('.mailchimp-error').html('Phần tên người dùng của địa chỉ email trống').fadeIn(900);
-                                   } else if (resp.msg == 'Thank you for subscribing!') {
-                                       $('.mailchimp-error').html('Cảm ơn bạn đã đăng ký!').fadeIn(900);
-                                   } else {
-                                       $('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-                                   }
-                               }
-                           }
-                       </script>
+                     
                    </div>
                    <div class="contact-footer">
                        <div class="item">

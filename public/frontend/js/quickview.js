@@ -1,4 +1,4 @@
-Bizweb.doNotTriggerClickOnThumb = false;
+
 function changeImageQuickView(img, selector) {
 	var src = $(img).attr("src");
 	src = src.replace("_compact", "");

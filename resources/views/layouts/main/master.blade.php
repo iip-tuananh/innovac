@@ -50,7 +50,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/toastr.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/snow.style.css')}}">
     <script src="{{asset('frontend/js/toastr.min.js')}}"></script>
-    
     @yield('css')
     <style>
         :root {
@@ -119,6 +118,13 @@
 </head>
 
 <body>
+    {{-- <div class="popup-create">
+    <div class="popup-notify">
+        <div class="notify-header">
+                test
+        </div>
+    </div>
+    </div> --}}
     {{-- tuyết --}}
     <div class="snowflakes" aria-hidden="true">
         <div class="snowflake">❅</div>
