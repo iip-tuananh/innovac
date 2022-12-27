@@ -3317,6 +3317,12 @@ p.test-aa {
     font-size: 25px !important;
    transform: translateX(50px);
 }
+.image_hover img{
+    border-radius: 10px;
+}
+.block-thumb img{
+    border-radius: 10px;
+}
 @media only screen and (max-width: 600px){
     .hidden-custome{
         display: none !important;

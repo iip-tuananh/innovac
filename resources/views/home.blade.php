@@ -379,7 +379,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 d-md-block d-none block-banner col-right">
-                                    <a href="#" class="thumb image_hover" title="{{$setting->company}}">
+                                    <a href="{{route('allListProCate',['cate'=>$cate->slug])}}" class="thumb image_hover" title="{{$setting->company}}">
                                         <img class="lazyload" width="377" height="534"
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{$cate->imagehome}}"
@@ -467,7 +467,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 d-md-block d-none block-banner col-right order-md-1">
-                                    <a href="#" class="thumb image_hover" title="{{$setting->company}}">
+                                    <a href="{{route('allListProCate',['cate'=>$cate->slug])}}" class="thumb image_hover" title="{{$setting->company}}">
                                         <img class="lazyload" width="377" height="534"
                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{$cate->imagehome}}"
