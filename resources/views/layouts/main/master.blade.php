@@ -118,34 +118,35 @@
 </head>
 
 <body>
-    {{-- <div class="popup-create">
-    <div class="popup-notify">
-        <div class="notify-header">
-                test
+  
+   
+    @if (session()->has('successBill'));
+    <div id="popup-notify" class="quickview-product">
+        <div id="close-qw" class="quickview-overlay"></div>
+        <div class="quick-view-product">
+            <div class="row ">
+                <div class="col-12 notify-modal">
+                    <img class="img-tichxanh" src="{{url('frontend/img/tichxanh.png')}}" alt="">
+                </div>
+                <div class="col-12 notify-modal h3-notify">
+                    <h3 > Đặt hàng thành công</h3>
+                </div>
+                <div class="col-12 notify-modal">
+                    Đơn hàng của quý khách đã được cập nhật.Chúng tôi sẽ sớm liên hệ với quý khách để bàn giao sản phẩm
+                </div>
+                <div class="col-12 notify-modal">
+                    Cảm ơn quý khách đã tin tưởng và sử dụng dịch vụ của chúng tôi !
+                </div>
+            </div>
+            <div class="row"></div>
+        <a title="Close" class="quickview-close close-window" href="javascript:;" onclick="removeNotify()">
+            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="svg-inline--fa fa-times fa-w-10">
+                <path fill="currentColor" d="M207.6 256l107.72-107.72c6.23-6.23 6.23-16.34 0-22.58l-25.03-25.03c-6.23-6.23-16.34-6.23-22.58 0L160 208.4 52.28 100.68c-6.23-6.23-16.34-6.23-22.58 0L4.68 125.7c-6.23 6.23-6.23 16.34 0 22.58L112.4 256 4.68 363.72c-6.23 6.23-6.23 16.34 0 22.58l25.03 25.03c6.23 6.23 16.34 6.23 22.58 0L160 303.6l107.72 107.72c6.23 6.23 16.34 6.23 22.58 0l25.03-25.03c6.23-6.23 6.23-16.34 0-22.58L207.6 256z" class=""></path>
+            </svg>
+        </a>
         </div>
-    </div>
-    </div> --}}
-    {{-- tuyết --}}
-    <div class="snowflakes" aria-hidden="true">
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-        <div class="snowflake">❅</div>
-        <div class="snowflake">❆</div>
-    </div>
-    {{-- end tuyết --}}
+    </div>     
+    @endif
     <div class="opacity_menu"></div>
     @include('layouts.header.index')
     @yield('content')
@@ -293,7 +294,15 @@
             $('.backdrop__body-backdrop___1rvky').removeClass('active');
         })
     </script>
-
+    {{-- romove-notify-popup --}}
+    <script>
+        function removeNotify() {
+   $('#popup-notify').css('display', 'none');
+   }
+   $('.quickview-overlay ').click(function() {
+   $('#popup-notify').css('display', 'none');
+   })
+    </script>
     
     <div id="sidebar-all" class="d-none">
         <div class="sidebar-all-wrap-right container" data-type="wishlist">
