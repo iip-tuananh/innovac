@@ -303,7 +303,7 @@
    $('#popup-notify').css('display', 'none');
    })
     </script>
-    
+  
     <div id="sidebar-all" class="d-none">
         <div class="sidebar-all-wrap-right container" data-type="wishlist">
             <div class="sidebar-all-wrap-right-main">
@@ -469,6 +469,9 @@
                 </svg>
             </symbol>
         </svg>
+        <script>
+        
+        </script>
     </div>
 </body>
 </html>

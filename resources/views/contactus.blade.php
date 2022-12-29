@@ -112,48 +112,4 @@ Liên hệ với chúng tôi
 		  </div>
 	   </div>
 	</div>
-	
-	<script>
-        @if(Session::has('ok'))
-		toastr.options = {
-                "showMethod": "slideDown",
-                "hideMethod": "slideUp",
-                "closeMethod": "slideUp",
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-            }
-            toastr.success("{{ session('ok') }}", "Success ");
-        @endif
-
-        @if(Session::has('error'))
-        toastr.options = {
-                "showMethod": "slideDown",
-                "hideMethod": "slideUp",
-                "closeMethod": "slideUp",
-                "closeButton": true,
-                "progressBar": true,
-                "positionClass": "toast-top-right",
-            }
-            toastr.error("{{ session('error') }}", "Erro");
-        @endif
-
-        @if(Session::has('info'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.info("{{ session('info') }}");
-        @endif
-
-        @if(Session::has('warning'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
-        }
-                toastr.warning("{{ session('warning') }}");
-        @endif
-      </script>  
 @endsection

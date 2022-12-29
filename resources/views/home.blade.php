@@ -100,11 +100,11 @@
                             <div class="swiper-wrapper">
                                 @foreach ($productBrands as $brand)
                                     <div class="swiper-slide">
-                                        <div class="item_product_main">
+                                        <div class="item_product_main item-ctm">
                                             <a class="variants product-action ">
                                                 <div class="product-thumbnail">
-                                                    <a class="image_thumb scale_hover" href="{{route('listProductBrand',['slug'=>$brand->slug])}}" title="">
-                                                        <img class="lazyload"
+                                                    <a class="image_thumb scale_hover " href="{{route('listProductBrand',['slug'=>$brand->slug])}}" title="">
+                                                        <img class="lazyload img-custom"
                                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                                             data-src="{{ $brand->image }}" alt="">
                                                     </a>
@@ -312,7 +312,7 @@
                     <div class="row">
                         @foreach ($bannerAds as $banner)
                             <div class="col-md-4 col-12 block-item">
-                                <p  class="thumb image_hover" title="Sapo">
+                                <p  class="thumb image_hover" title="Innovac">
                                     <img width="377" height="207" class="lazy"
                                         src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                         data-src="{{ $banner->image }}" alt="{{$setting->company}}">

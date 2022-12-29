@@ -218,8 +218,32 @@ $promotion =  json_decode($product->preserve);
                            </div>
                         </form>
                      </div>
+                  </div>
+                     <div class="specifications ">
+                        <h2 class="fs-dttop">Thông số kỹ thuật</h2>
+                        <div class="fs-tsright">
+                           {!!languageName($product->description)!!}
+                        </div>
+                        <button type="button" class="btn btn-primary btn-specifications btn-detail">
+                        Xem cấu hình chi tiết
+                        </button>
+                        <div class="modal fade active" id="specifications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+                           <div class="specifications-overlay"></div>
+                           <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                 <div class="modal-header">
+                                    <button type="button" class="close close-specifications"  aria-label="Close"><span aria-hidden="true">×</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">Thông số kỹ thuật chi tiết</h4>
+                                 </div>
+                                 <div class="modal-body">
+                                    {!!languageName($product->description)!!}
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                      <div class="product-tab-mobile"></div>
-                     <div class="blog-bar">
+                     <div class="blog-bar pd-20">
                         <div class="title"><a href="tin-tuc" title="Tin nổi bật">Tin nổi bật</a></div>
                         <div class="clearfix"></div>
                         <div class="blog-bar-default">
@@ -235,12 +259,33 @@ $promotion =  json_decode($product->preserve);
                            @endforeach
                         </div>
                      </div>
+               <script>
+                  $('.btn-detail').click(function(e){
+                     $('#specifications').attr("style", "display:block")
+                  });
+                 
+               </script>
+               <script>
+                   $('.close-specifications').click(function(e){
+                     $('#specifications').attr("style","display:none")
+                  })
+                  
+               </script>
+               <script>
+                  $('.specifications-overlay').click(function(e){
+                     $('#specifications').attr("style","display:none")
+                  })
+               </script>
                   </div>
                </div>
             </div>
          </div>
       </div>
-   
+   <script>
+      $(.'btn-detail').click(function(){
+         console.log('123');
+      })
+   </script>
    </section>
    @if (count($productlq) > 1)
    <div class="productRelate">
