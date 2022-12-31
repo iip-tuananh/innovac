@@ -149,7 +149,7 @@
        </div>
        <div class="cart-mobile-page d-block d-xl-none">
           <div class="CartMobileContainer">
-             <div class="cart--empty-message">
+             <div class="cart--empty-message te">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 201.387 201.387" style="enable-background:new 0 0 201.387 201.387;" xml:space="preserve">
                    <g>
                       <g>
