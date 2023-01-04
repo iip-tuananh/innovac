@@ -21,7 +21,7 @@ class ProductController extends Controller
     {
         $data['brands'] = ProductBrands::where('status', 1)->get();
         $data['list'] = Product::where(['status'=>1])->orderBy('id','DESC')->select('id','category','name','discount','price','images','slug','cate_slug','type_slug', 'size', 'description')
-        ->paginate(24);
+        ->paginate(16);
         $data['title'] = "Tất cả sản phẩm";
         return view('product.list',$data);
     }

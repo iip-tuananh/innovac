@@ -13,7 +13,7 @@ class ProductBrandController extends Controller
         $data['list'] = Product::where(['status'=>1,'brand_slug'=>$slug])
         ->orderBy('id','DESC')
         ->select('id','category','name','discount','price','images','slug','cate_slug','type_slug', 'size','description')
-        ->paginate(12);
+        ->paginate(16);
         $data['brands'] = ProductBrands::where('status', 1)->get();
         $data['cateBrand'] = ProductBrands::where('slug',$slug)->first(['id','name','image','slug']);
         $brand = ProductBrands::where('slug', $slug)->first();
