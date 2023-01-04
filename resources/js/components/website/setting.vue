@@ -96,7 +96,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label>Google</label>
+                  <label>Chat messenger</label>
                   <vs-input
                     type="text"
                     size="default"

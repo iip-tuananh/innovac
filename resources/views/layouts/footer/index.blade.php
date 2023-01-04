@@ -157,16 +157,19 @@
                                    d="M6.46434 0.686035C3.26667 0.686035 0.650391 3.30231 0.650391 6.49999C0.650391 8.08776 2.19903 10.9476 2.27538 11.0877C2.27783 11.0922 2.2796 11.0952 2.2822 11.0996L5.87202 17.1867C6.06249 17.5097 6.52751 17.5159 6.72649 17.198L10.4722 11.2154C10.4747 11.2113 10.4763 11.2088 10.4789 11.2049C10.561 11.0807 12.3364 8.37556 12.3364 6.55813C12.3364 3.30231 9.72016 0.686035 6.46434 0.686035ZM6.46434 9.69766C4.60388 9.69766 3.09225 8.18603 3.09225 6.32557C3.09225 4.4651 4.60388 2.95348 6.46434 2.95348C8.32481 2.95348 9.83644 4.4651 9.83644 6.32557C9.7783 8.24417 8.32481 9.69766 6.46434 9.69766Z"
                                    stroke="white" stroke-width="1.25" stroke-miterlimit="10" />
                            </svg>
-                           @if (isset($setting->address1))
-                           <li>
-                            {{ $setting->address1}}
-                        </li>
-                           @endif
-                           @if (isset($setting->address2))
-                        <li>
-                            {{ $setting->address2}}
-                        </li>
-                        @endif
+                            <b>Hà Nội:</b>
+								<ul>
+										@if (isset($setting->address1))
+											<li><a href="https://www.google.com/maps/place/Vinhome+Gardenia/@21.0367142,105.7602106,17z/data=!3m1!4b1!4m5!3m4!1s0x313455e2e14cbc67:0x8796754f084b19ad!8m2!3d21.0367283!4d105.762406?hl=vi" target="_blank" rel="noopener noreferrer">{{$setting->address1}}</a></li>
+										@endif
+										@if (isset($setting->address2) > 0)
+											<li><a href="https://www.google.com/maps/place/55+Ng.+171+%C4%90.+Nguy%E1%BB%85n+Ng%E1%BB%8Dc+V%C5%A9,+Trung+Ho%C3%A0,+C%E1%BA%A7u+Gi%E1%BA%A5y,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@21.0109578,105.8053384,18z/data=!3m1!4b1!4m5!3m4!1s0x3135ac9fe56fce0f:0x6366e8daedcef88!8m2!3d21.0109553!4d105.8064327?hl=vi" target="_blank" rel="noopener noreferrer">{{$setting->address2}}</a></li>
+										@endif
+								</ul>
+                                <b>Tp Hồ Chí Minh:</b>
+								<ul>
+									<li><a href="https://www.google.com/maps/place/10%C2%B043'18.4%22N+106%C2%B039'42.3%22E/@10.721777,106.6595621,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xe5fad49a66ff560c!8m2!3d10.721777!4d106.6617508" target="_blank" rel="noopener noreferrer">Showroom 2 - 20 Đường số 1, KDC Phi Long, Bình Hưng, Bình Chánh</a></li>
+								</ul>
                        </div>
                        <div class="item">
                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"

@@ -22,10 +22,10 @@ Danh sách {{$title}}
          <div class="container">
             <ul class="breadcrumb" >
                <li class="home">
-                  <a  href="/" ><span >Trang chủ</span></a>		
+                  <a  href="{{route('home')}}" ><span >Trang chủ</span></a>		
                   <span class="mr_lr">&nbsp;/&nbsp;</span>
                </li>
-            <li><strong ><span>{{isset($cateno) ? languageName($cateno->name) : $cateBrand->name}}</span></strong></li>
+            <li><strong ><span>{{$title}}</span></strong></li>
             </ul>
          </div>
       </section>

@@ -78,7 +78,7 @@
         Route::get('thuong-hieu/{slug}.html','ProductBrandController@listProductBrand')->name('listProductBrand');
         Route::get('san-pham-khuyen-mai.html','ProductController@listSale')->name('listSale');
         Route::get('tat-ca-thuong-hieu.html','ProductBrandController@allProductBrand')->name('allProductBrand');
-        Route::get('tat-ca-du-an.html','ProductController@allProduct')->name('allProduct');
+        Route::get('tat-ca-san-pham.html','ProductController@allProduct')->name('allProduct');
         Route::get('chi-tiet/{cate}/{slug}.html','ProductController@detail_product')->name('detailProduct');
         Route::get('{cate}.html','ProductController@allListCate')->name('allListProCate');
         Route::get('{cate}/{type}.html','ProductController@allListType')->name('allListProType');

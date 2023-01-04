@@ -42,15 +42,25 @@ Liên hệ với chúng tôi
 						 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-map-marker-alt fa-w-12">
 							<path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" class=""></path>
 						 </svg>
-						 <b>Địa chỉ:</b>
+						 <b>Hà Nội:</b>
 								<ul>
 								
 										@if (isset($setting->address1))
-											<li>{{$setting->address1}}</li>
+											<li><a href="https://www.google.com/maps/place/Vinhome+Gardenia/@21.0367142,105.7602106,17z/data=!3m1!4b1!4m5!3m4!1s0x313455e2e14cbc67:0x8796754f084b19ad!8m2!3d21.0367283!4d105.762406?hl=vi" target="_blank" rel="noopener noreferrer">{{$setting->address1}}</a></li>
 										@endif
 										@if (isset($setting->address2) > 0)
-											<li>{{$setting->address2}}</li>
+											<li><a href="https://www.google.com/maps/place/55+Ng.+171+%C4%90.+Nguy%E1%BB%85n+Ng%E1%BB%8Dc+V%C5%A9,+Trung+Ho%C3%A0,+C%E1%BA%A7u+Gi%E1%BA%A5y,+H%C3%A0+N%E1%BB%99i,+Vi%E1%BB%87t+Nam/@21.0109578,105.8053384,18z/data=!3m1!4b1!4m5!3m4!1s0x3135ac9fe56fce0f:0x6366e8daedcef88!8m2!3d21.0109553!4d105.8064327?hl=vi" target="_blank" rel="noopener noreferrer">{{$setting->address2}}</a></li>
 										@endif
+								</ul>
+						
+					  </div>
+					  <div class="item">
+						 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="svg-inline--fa fa-map-marker-alt fa-w-12">
+							<path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" class=""></path>
+						 </svg>
+						 <b>Tp Hồ Chí Minh:</b>
+								<ul>
+									<li><a href="https://www.google.com/maps/place/10%C2%B043'18.4%22N+106%C2%B039'42.3%22E/@10.721777,106.6595621,17z/data=!3m1!4b1!4m5!3m4!1s0x0:0xe5fad49a66ff560c!8m2!3d10.721777!4d106.6617508" target="_blank" rel="noopener noreferrer">Showroom 2 - 20 Đường số 1, KDC Phi Long, Bình Hưng, Bình Chánh</a></li>
 								</ul>
 						
 					  </div>

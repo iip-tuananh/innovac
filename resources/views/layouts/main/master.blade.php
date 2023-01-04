@@ -48,6 +48,7 @@
     <link rel="preload" as='style' type="text/css" href="{{ asset('frontend/css/bootstrap-4-3-min.css') }}">
     <link rel="preload" as='style' type="text/css" href="{{ asset('frontend/css/quickviews_popup_cart.scss.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/toastr.min.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="{{asset('frontend/css/snow.style.css')}}">
     <script src="{{asset('frontend/js/toastr.min.js')}}"></script>
     @yield('css')
@@ -428,6 +429,11 @@
             </a>
         </div>
     </div>
+    <a href="{{$setting->google}}">
+    <div class="chat-mess">
+        <i class="bi bi-messenger"></i>
+    </div>
+    </a>
     <div style="visibility:hidden; position: absolute; z-index: -1; bottom: 0; left: 0;">
         <svg xmlns="http://www.w3.org/2000/svg">
             <symbol id="icon-quickview">
