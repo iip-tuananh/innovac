@@ -429,7 +429,7 @@
             </a>
         </div>
     </div>
-    <a href="{{$setting->google}}">
+    <a href="{{$setting->google}}" target="_blank" rel="noopener noreferrer"></a>
     <div class="chat-mess">
         <i class="bi bi-messenger"></i>
     </div>
