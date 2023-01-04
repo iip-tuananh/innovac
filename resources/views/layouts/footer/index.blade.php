@@ -127,28 +127,6 @@
                    <div class="slogan-footer">
                     {{$setting->company}}
                    </div>
-                   <div class="mailchim">
-                       <h4 class="title-menu " style="font-size: 12px">
-                           Đăng ký để nhận tin tức khuyến mãi mới nhất
-                       </h4>
-                       <form id="mc-form" action="{{route('postcontact')}}" class="newsletter-form" data-toggle="validator" method="POST">
-                        @csrf
-                           <input aria-label="Địa chỉ Email" type="email" class="form-control"
-                               placeholder="Nhập địa chỉ email" name="email" required
-                               autocomplete="off" />
-                           <button class="btn btn-default" type="submit" aria-label="Đăng ký nhận tin"
-                               name="subscribe">Gửi</button>
-                       </form>
-                       <div class="mailchimp-alerts ">
-                           <div class="mailchimp-submitting"></div>
-                           <!-- mailchimp-submitting end -->
-                           <div class="mailchimp-success"></div>
-                           <!-- mailchimp-success end -->
-                           <div class="mailchimp-error"></div>
-                           <!-- mailchimp-error end -->
-                       </div>
-                     
-                   </div>
                    <div class="contact-footer">
                        <div class="item">
                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="19"
@@ -293,6 +271,33 @@
                                </div>
                            </div>
                        </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <div class="mailchim">
+                            <h4 class="title-menu " style="font-size: 12px">
+                                Đăng ký để nhận tin tức khuyến mãi mới nhất
+                            </h4>
+                            <form id="mc-form" action="{{route('postcontact')}}" class="newsletter-form" data-toggle="validator" method="POST">
+                             @csrf
+                                <input aria-label="Địa chỉ Email" type="email" class="form-control"
+                                    placeholder="Nhập địa chỉ email" name="email" required
+                                    autocomplete="off" />
+                                <button class="btn btn-default" type="submit" aria-label="Đăng ký nhận tin"
+                                    name="subscribe">Gửi</button>
+                            </form>
+                            <div class="mailchimp-alerts ">
+                                <div class="mailchimp-submitting"></div>
+                                <!-- mailchimp-submitting end -->
+                                <div class="mailchimp-success"></div>
+                                <!-- mailchimp-success end -->
+                                <div class="mailchimp-error"></div>
+                                <!-- mailchimp-error end -->
+                            </div>
+                          
+                        </div>
+                    </div>
                    </div>
                </div>
            </div>
