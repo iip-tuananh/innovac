@@ -200,7 +200,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-12 link_list col-footer">
                         <h4 class="title-menu">
-                            CHÍNH SÁCH ĐỔI TRÁ
+                            CHÍNH SÁCH ĐỔI TRẢ
                             <span class="Collapsible__Plus"></span>
                         </h4>
                         <div class="list-menu hidden-mobile">
