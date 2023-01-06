@@ -17,7 +17,7 @@
                     Hotline TP.HCM :
                     @if (isset($setting->phone2))
                     <a class="fone" href="tel:{{$setting->phone2}}" title="{{$setting->phone2}}">
-                        {{$setting->phone1}}
+                        {{$setting->phone2}}
                     @endif
                     </a>
                 </span>
