@@ -1,123 +1,124 @@
 <header class="header">
-   <div class="topbar ">
-       <div class="container">
-           <div class="row">
-               <div class="col-lg-7 col-md-12 col-12 contact-header">
-                   <span class="time">
-                       Giờ mở cửa: 08:30 - 21:30 các ngày trong tuần
-                   </span>
-                   <span class="hotline ">
-                       Hotline hỗ trợ :
-                       @if (isset($setting->phone1))
-                       <a class="fone" href="tel:{{$setting->phone1}}" title="{{$setting->phone1}}">
+<div class="topbar ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-12 contact-header">
+                <span class="time">
+                    Giờ mở cửa: 08:30 - 21:30 các ngày trong tuần
+                </span>
+                <span class="hotline ">
+                    Hotline Hà Nội :
+                    @if (isset($setting->phone1))
+                    <a class="fone" href="tel:{{$setting->phone1}}" title="{{$setting->phone1}}">
                         {{$setting->phone1}}
-                       </a>
-                       @endif
-                       &nbsp; | &nbsp;
-                       @if (isset($setting->phone2))
-                       <a class="fone" href="tel:{{$setting->phone2}}" title="{{$setting->phone2}}">
+                    </a>
+                    @endif
+                    &nbsp; | &nbsp;
+                    Hotline TP.HCM :
+                    @if (isset($setting->phone2))
+                    <a class="fone" href="tel:{{$setting->phone2}}" title="{{$setting->phone2}}">
                         {{$setting->phone1}}
-                       @endif
-                       </a>
-                   </span>
-               </div>
-               <div class="col-lg-5 d-lg-block d-none menu-top">
-             
-                   <a href="#" title="Hệ thống">Hệ thống</a>
-                   <a href="#" title="Hỏi đáp">Hỏi đáp</a>
-               </div>
-           </div>
-       </div>
-   </div>
-   <div class="midder-header">
-       <div class="container">
-           <div class="row align-items-center">
-               <div class="col-lg-3 col-12 block-logo">
-                   <a href="{{route('home')}}" class="logo" title="Logo">
-                       <img width="217" height="28"
-                           src="{{url($setting->logo)}}">
-                   </a>
-               </div>
-               <div class="col-lg-7 col-md-12 col-12  block-search">
-                   <div class="header_search">
-                       <form class="input-group search-bar"  method="POST"  action="{{route('search_result')}}" data-url="{{route('search_ajax')}}">
+                    @endif
+                    </a>
+                </span>
+            </div>
+            <div class="col-lg-3 d-lg-block d-none menu-top">
+                @foreach ($headerTopAboutUs as $item)
+                    <a href="{{route('pagecontent',['slug'=>$item->slug])}}" title="{{$item->title}}">{{$item->title}}</a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
+<div class="midder-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-12 block-logo">
+                <a href="{{route('home')}}" class="logo" title="Logo">
+                    <img width="217" height="28"
+                        src="{{url($setting->logo)}}">
+                </a>
+            </div>
+            <div class="col-lg-7 col-md-12 col-12  block-search">
+                <div class="header_search">
+                    <form class="input-group search-bar"  method="POST"  action="{{route('search_result')}}" data-url="{{route('search_ajax')}}">
                         @csrf
-                           <div class="collection-selector">
-                               <div class="search_text">Tất cả sản phẩm</div>
-                               <div id="search_info" class="list_search" style="display: none;">
+                        <div class="collection-selector">
+                            <div class="search_text">Tất cả sản phẩm</div>
+                            <div id="search_info" class="list_search" style="display: none;">
                                 @foreach ($typeCate as $type)                         
                                 <div class="search_item" data-coll-id="2952302" title="{{languageName($type->name)}}"><a href="{{route('allListProType', ['cate'=>$type->cate_slug, 'type'=>$type->slug])}}">{{languageName($type->name)}}</a></div>
                                 @endforeach
-                               </div>
-                           </div>
-                           <input type="search" id="keyword"  name="keyword" placeholder="Tìm kiếm..."
-                               class="input-group-field st-default-search-input search-text" autocomplete="off"
-                               required>
-                           <span class="input-group-btn">
-                               <button class="btn icon-fallback-text" type="submit">
-                                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                       viewBox="0 0 18 18" fill="none">
-                                       <path fill-rule="evenodd" clip-rule="evenodd"
-                                           d="M7.66667 1.75C4.39898 1.75 1.75 4.39898 1.75 7.66667C1.75 10.9344 4.39898 13.5833 7.66667 13.5833C10.9344 13.5833 13.5833 10.9344 13.5833 7.66667C13.5833 4.39898 10.9344 1.75 7.66667 1.75ZM0.25 7.66667C0.25 3.57055 3.57055 0.25 7.66667 0.25C11.7628 0.25 15.0833 3.57055 15.0833 7.66667C15.0833 11.7628 11.7628 15.0833 7.66667 15.0833C3.57055 15.0833 0.25 11.7628 0.25 7.66667Z"
-                                           fill="white" />
-                                       <path fill-rule="evenodd" clip-rule="evenodd"
-                                           d="M12.0244 12.0252C12.3173 11.7323 12.7921 11.7323 13.085 12.0252L17.5295 16.4697C17.8224 16.7625 17.8224 17.2374 17.5295 17.5303C17.2366 17.8232 16.7617 17.8232 16.4688 17.5303L12.0244 13.0859C11.7315 12.793 11.7315 12.3181 12.0244 12.0252Z"
-                                           fill="white" />
-                                       <path fill-rule="evenodd" clip-rule="evenodd"
-                                           d="M13.4904 10.918C13.9039 10.9426 14.2191 11.2977 14.1945 11.7112C14.1549 12.3767 14.0217 13.0217 13.5448 13.4941C13.0819 13.9527 12.4326 14.1079 11.7576 14.1891C11.3463 14.2385 10.9729 13.9452 10.9234 13.534C10.874 13.1227 11.1672 12.7492 11.5785 12.6998C12.204 12.6246 12.4068 12.5101 12.4892 12.4285C12.5576 12.3607 12.663 12.195 12.6971 11.6221C12.7218 11.2086 13.0769 10.8934 13.4904 10.918Z"
-                                           fill="white" />
-                                   </svg>
-                               </button>
-                           </span>
-                           <div id="search_ajax" class="hidden"></div>
-                       </form>
-                   </div>
-               </div>
-               <div class="col-lg-2 col-md-12 col-12 col-cart-account-wish header-text">
-                   <div class="block-account menu-bar d-lg-none d-block">
-                       <a href="javascript:;" title="Tài khoản của bạn" rel="nofollow">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
-                               viewBox="0 0 20 16" fill="none">
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M0.958984 1C0.958984 0.516751 1.35074 0.125 1.83398 0.125H12.334C12.8172 0.125 13.209 0.516751 13.209 1C13.209 1.48325 12.8172 1.875 12.334 1.875H1.83398C1.35074 1.875 0.958984 1.48325 0.958984 1Z"
-                                   fill="white"></path>
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M0.958984 15C0.958984 14.5168 1.35074 14.125 1.83398 14.125H8.83399C9.31723 14.125 9.70899 14.5168 9.70899 15C9.70899 15.4832 9.31723 15.875 8.83399 15.875H1.83398C1.35074 15.875 0.958984 15.4832 0.958984 15Z"
-                                   fill="white"></path>
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M0.958984 8C0.958984 7.51675 1.35074 7.125 1.83398 7.125H18.1673C18.6506 7.125 19.0423 7.51675 19.0423 8C19.0423 8.48325 18.6506 8.875 18.1673 8.875H1.83398C1.35074 8.875 0.958984 8.48325 0.958984 8Z"
-                                   fill="white"></path>
-                           </svg>
-                           <span class="info">
-                               <span>Danh mục</span>
-                               <span>Sản phẩm</span>
-                           </span>
-                       </a>
-                   </div>    
-                   <div class="block-cart">
-                       <a href="{{route('listCart')}}" class="header-cart" aria-label="Xem giỏ hàng" title="Giỏ hàng">
-                           <span class="icon">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="27" height="31"
-                                   viewBox="0 0 27 31" fill="none">
-                                   <path fill-rule="evenodd" clip-rule="evenodd"
-                                       d="M0.160015 15.2726C-0.823176 11.2022 2.8873 7.74798 6.82992 8.39249C11.4344 9.14521 15.4124 9.16777 20.1547 8.39867C24.0998 7.75886 27.8249 11.2168 26.84 15.2942L24.1192 26.5581C23.5249 29.0186 21.32 30.75 18.7879 30.75H8.21736C5.68523 30.75 3.48033 29.0186 2.886 26.5581L0.160015 15.2726ZM6.45665 10.6759C3.94943 10.266 1.86049 12.4585 2.40901 14.7293L5.13499 26.0148C5.47776 27.4339 6.7509 28.4363 8.21736 28.4363H18.7879C20.2543 28.4363 21.5275 27.4339 21.8702 26.0148L24.591 14.751C25.1402 12.4772 23.0414 10.2744 20.5251 10.6825C15.5333 11.4921 11.3042 11.4683 6.45665 10.6759Z"
-                                       fill="white" />
-                                   <path fill-rule="evenodd" clip-rule="evenodd"
-                                       d="M12.7078 2.98597C10.3651 2.98597 8.46603 4.88505 8.46603 7.22769L8.46601 13.9101C8.46601 14.549 7.94808 15.0669 7.30918 15.0669C6.67027 15.0669 6.15234 14.549 6.15234 13.91L6.15236 7.22769C6.15236 3.60725 9.08731 0.672302 12.7078 0.672302H14.2502C17.8706 0.672302 20.8056 3.60726 20.8056 7.2277V14.1687C20.8056 14.8076 20.2877 15.3255 19.6488 15.3255C19.0098 15.3255 18.4919 14.8076 18.4919 14.1687V7.2277C18.4919 4.88506 16.5928 2.98597 14.2502 2.98597H12.7078Z"
-                                       fill="white" />
-                               </svg>
-                               @if (count($cartcontent) > 0)
-                               <span class="count_item_pr">{{count($cartcontent)}}</span>
-                               @else
-                               <span class="count_item_pr">0</span>
-                               @endif
-                           </span>
-                           <span class="info header-text">
-                               <span>Giỏ hàng</span>
-                               <span>Của bạn</span>
-                           </span>
-                       </a>
-                       <div class="top-cart-content">
+                            </div>
+                        </div>
+                        <input type="search" id="keyword"  name="keyword" placeholder="Tìm kiếm..."
+                            class="input-group-field st-default-search-input search-text" autocomplete="off"
+                            required>
+                        <span class="input-group-btn">
+                            <button class="btn icon-fallback-text" type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 18 18" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M7.66667 1.75C4.39898 1.75 1.75 4.39898 1.75 7.66667C1.75 10.9344 4.39898 13.5833 7.66667 13.5833C10.9344 13.5833 13.5833 10.9344 13.5833 7.66667C13.5833 4.39898 10.9344 1.75 7.66667 1.75ZM0.25 7.66667C0.25 3.57055 3.57055 0.25 7.66667 0.25C11.7628 0.25 15.0833 3.57055 15.0833 7.66667C15.0833 11.7628 11.7628 15.0833 7.66667 15.0833C3.57055 15.0833 0.25 11.7628 0.25 7.66667Z"
+                                        fill="white" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M12.0244 12.0252C12.3173 11.7323 12.7921 11.7323 13.085 12.0252L17.5295 16.4697C17.8224 16.7625 17.8224 17.2374 17.5295 17.5303C17.2366 17.8232 16.7617 17.8232 16.4688 17.5303L12.0244 13.0859C11.7315 12.793 11.7315 12.3181 12.0244 12.0252Z"
+                                        fill="white" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M13.4904 10.918C13.9039 10.9426 14.2191 11.2977 14.1945 11.7112C14.1549 12.3767 14.0217 13.0217 13.5448 13.4941C13.0819 13.9527 12.4326 14.1079 11.7576 14.1891C11.3463 14.2385 10.9729 13.9452 10.9234 13.534C10.874 13.1227 11.1672 12.7492 11.5785 12.6998C12.204 12.6246 12.4068 12.5101 12.4892 12.4285C12.5576 12.3607 12.663 12.195 12.6971 11.6221C12.7218 11.2086 13.0769 10.8934 13.4904 10.918Z"
+                                        fill="white" />
+                                </svg>
+                            </button>
+                        </span>
+                        <div id="search_ajax" class="hidden"></div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-12 col-12 col-cart-account-wish header-text">
+                <div class="block-account menu-bar d-lg-none d-block">
+                    <a href="javascript:;" title="Tài khoản của bạn" rel="nofollow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                            viewBox="0 0 20 16" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.958984 1C0.958984 0.516751 1.35074 0.125 1.83398 0.125H12.334C12.8172 0.125 13.209 0.516751 13.209 1C13.209 1.48325 12.8172 1.875 12.334 1.875H1.83398C1.35074 1.875 0.958984 1.48325 0.958984 1Z"
+                                fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.958984 15C0.958984 14.5168 1.35074 14.125 1.83398 14.125H8.83399C9.31723 14.125 9.70899 14.5168 9.70899 15C9.70899 15.4832 9.31723 15.875 8.83399 15.875H1.83398C1.35074 15.875 0.958984 15.4832 0.958984 15Z"
+                                fill="white"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.958984 8C0.958984 7.51675 1.35074 7.125 1.83398 7.125H18.1673C18.6506 7.125 19.0423 7.51675 19.0423 8C19.0423 8.48325 18.6506 8.875 18.1673 8.875H1.83398C1.35074 8.875 0.958984 8.48325 0.958984 8Z"
+                                fill="white"></path>
+                        </svg>
+                        <span class="info">
+                            <span>Danh mục</span>
+                            <span>Sản phẩm</span>
+                        </span>
+                    </a>
+                </div>    
+                <div class="block-cart">
+                    <a href="{{route('listCart')}}" class="header-cart" aria-label="Xem giỏ hàng" title="Giỏ hàng">
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="31"
+                                viewBox="0 0 27 31" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.160015 15.2726C-0.823176 11.2022 2.8873 7.74798 6.82992 8.39249C11.4344 9.14521 15.4124 9.16777 20.1547 8.39867C24.0998 7.75886 27.8249 11.2168 26.84 15.2942L24.1192 26.5581C23.5249 29.0186 21.32 30.75 18.7879 30.75H8.21736C5.68523 30.75 3.48033 29.0186 2.886 26.5581L0.160015 15.2726ZM6.45665 10.6759C3.94943 10.266 1.86049 12.4585 2.40901 14.7293L5.13499 26.0148C5.47776 27.4339 6.7509 28.4363 8.21736 28.4363H18.7879C20.2543 28.4363 21.5275 27.4339 21.8702 26.0148L24.591 14.751C25.1402 12.4772 23.0414 10.2744 20.5251 10.6825C15.5333 11.4921 11.3042 11.4683 6.45665 10.6759Z"
+                                    fill="white" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.7078 2.98597C10.3651 2.98597 8.46603 4.88505 8.46603 7.22769L8.46601 13.9101C8.46601 14.549 7.94808 15.0669 7.30918 15.0669C6.67027 15.0669 6.15234 14.549 6.15234 13.91L6.15236 7.22769C6.15236 3.60725 9.08731 0.672302 12.7078 0.672302H14.2502C17.8706 0.672302 20.8056 3.60726 20.8056 7.2277V14.1687C20.8056 14.8076 20.2877 15.3255 19.6488 15.3255C19.0098 15.3255 18.4919 14.8076 18.4919 14.1687V7.2277C18.4919 4.88506 16.5928 2.98597 14.2502 2.98597H12.7078Z"
+                                    fill="white" />
+                            </svg>
+                            @if (count($cartcontent) > 0)
+                            <span class="count_item_pr">{{count($cartcontent)}}</span>
+                            @else
+                            <span class="count_item_pr">0</span>
+                            @endif
+                        </span>
+                        <span class="info header-text">
+                            <span>Giỏ hàng</span>
+                            <span>Của bạn</span>
+                        </span>
+                    </a>
+                    <div class="top-cart-content">
                             @if (count($cartcontent) > 0)
                                 <div class="CartHeaderContainer data-update-cart" data-url="{{route('updateCart')}}">
                                     <form class="cart ajaxcart cartheader">
@@ -243,33 +244,33 @@
                                 </div>
                                 </div>
                             @endif
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-   <div class="header-menu">
-       <div class="container">
-           <div class="row">
-               <div class="col-lg-3 col-cate d-lg-block d-none">
-                   <div class="block-cate">
-                       <div class="block-title">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
-                               viewBox="0 0 20 16" fill="none">
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M0.958984 1C0.958984 0.516751 1.35074 0.125 1.83398 0.125H12.334C12.8172 0.125 13.209 0.516751 13.209 1C13.209 1.48325 12.8172 1.875 12.334 1.875H1.83398C1.35074 1.875 0.958984 1.48325 0.958984 1Z"
-                                   fill="white" />
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M0.958984 15C0.958984 14.5168 1.35074 14.125 1.83398 14.125H8.83399C9.31723 14.125 9.70899 14.5168 9.70899 15C9.70899 15.4832 9.31723 15.875 8.83399 15.875H1.83398C1.35074 15.875 0.958984 15.4832 0.958984 15Z"
-                                   fill="white" />
-                               <path fill-rule="evenodd" clip-rule="evenodd"
-                                   d="M0.958984 8C0.958984 7.51675 1.35074 7.125 1.83398 7.125H18.1673C18.6506 7.125 19.0423 7.51675 19.0423 8C19.0423 8.48325 18.6506 8.875 18.1673 8.875H1.83398C1.35074 8.875 0.958984 8.48325 0.958984 8Z"
-                                   fill="white" />
-                           </svg>
-                           Danh mục sản phẩm
-                       </div>
-                       <ul class="block-nav">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="header-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-cate d-lg-block d-none">
+                <div class="block-cate">
+                    <div class="block-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
+                            viewBox="0 0 20 16" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.958984 1C0.958984 0.516751 1.35074 0.125 1.83398 0.125H12.334C12.8172 0.125 13.209 0.516751 13.209 1C13.209 1.48325 12.8172 1.875 12.334 1.875H1.83398C1.35074 1.875 0.958984 1.48325 0.958984 1Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.958984 15C0.958984 14.5168 1.35074 14.125 1.83398 14.125H8.83399C9.31723 14.125 9.70899 14.5168 9.70899 15C9.70899 15.4832 9.31723 15.875 8.83399 15.875H1.83398C1.35074 15.875 0.958984 15.4832 0.958984 15Z"
+                                fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M0.958984 8C0.958984 7.51675 1.35074 7.125 1.83398 7.125H18.1673C18.6506 7.125 19.0423 7.51675 19.0423 8C19.0423 8.48325 18.6506 8.875 18.1673 8.875H1.83398C1.35074 8.875 0.958984 8.48325 0.958984 8Z"
+                                fill="white" />
+                        </svg>
+                        Danh mục sản phẩm
+                    </div>
+                    <ul class="block-nav">
                         @foreach ($categoryProduct as $cate)
                         <li class="nav-item ">
                             <a class="a-img caret-down" href="{{route('allListProCate',['cate'=>$cate->slug])}}" title=" {{languageName($cate->name)}}">
@@ -289,34 +290,34 @@
                             @endif
                         </li>
                         @endforeach
-                       </ul>
-                   </div>
-               </div>
-               <div class="col-lg-9 col-10 col-menu">
-                   <nav class="header-nav">
-                       <ul class="item_big">
-                           <li class="nav-item">
-                               <a class="a-img" href="{{route('home')}}" title="Trang chủ">
-                                   Trang chủ
-                               </a>
-                           </li>
-                           <li class="nav-item ">
-                               <a class="a-img" href="{{route('aboutUs')}}" title="Giới thiệu">
-                                   Giới thiệu
-                               </a>
-                           </li>
-                           <li class="nav-item ">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-9 col-10 col-menu">
+                <nav class="header-nav">
+                    <ul class="item_big">
+                        <li class="nav-item">
+                            <a class="a-img" href="{{route('home')}}" title="Trang chủ">
+                                Trang chủ
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="a-img" href="{{route('aboutUs')}}" title="Giới thiệu">
+                                Giới thiệu
+                            </a>
+                        </li>
+                        <li class="nav-item ">
                             <a class="a-img caret-down" href="{{route('allProduct')}}" title="Sản phẩm">
                             Sản phẩm
                             </a>
                             <i class="fa fa-caret-down"></i>
                             <ul class="item_small">
                                 @foreach ($categoryProduct as $cate)
-                               <li>
+                            <li>
                                 <a class="a-img caret-down" href="{{route('allListProCate',['cate'=>$cate->slug])}}" title=" {{languageName($cate->name)}}">
                                     {{languageName($cate->name)}}
-                                  </a>
-                                  @if (count($cate->typeCate) > 0)
+                                </a>
+                                @if (count($cate->typeCate) > 0)
                                     <i class="fa fa-caret-down"></i>
                                     <ul>
                                         @foreach ($cate->typeCate as $type)
@@ -327,42 +328,42 @@
                                         </li>   
                                         @endforeach
                                     </ul>
-                                  @endif
-                               </li>
-                               @endforeach
+                                @endif
+                            </li>
+                            @endforeach
                             </ul>
-                         </li>
-                           <li class="nav-item ">
-                               <a class="a-img caret-down" href="#" title="Sản phẩm">
-                                   Chính sách đổi trả
-                               </a>
-                               <i class="fa fa-caret-down"></i>
-                               <ul class="item_small">
+                        </li>
+                        <li class="nav-item ">
+                            <a class="a-img caret-down" href="#" title="Chính sách đổi trả">
+                                Chính sách đổi trả
+                            </a>
+                            <i class="fa fa-caret-down"></i>
+                            <ul class="item_small">
                                 @foreach ($servicehome as $service)
-                                   <li>
-                                       <a class="" href="{{route('serviceDetail',['slug'=>$service->slug])}}" title="{{$service->name}}">
-                                          {{$service->name}}
-                                       </a>
-                                   </li>
-                                   @endforeach
-                               </ul>
-                           </li>
-                           <li class="nav-item ">
-                               <a class="a-img" href="{{route('allListBlog')}}" title="Tin tức">
-                                   Tin tức
-                               </a>
-                           </li>
-                           <li class="nav-item ">
-                               <a class="a-img" href="{{route('lienHe')}}" title="Liên hệ">
-                                   Liên hệ
-                               </a>
-                           </li>
-                       </ul>
-                   </nav>
-               </div>
-           </div>
-       </div>
-   </div>
+                                <li>
+                                    <a class="" href="{{route('serviceDetail',['slug'=>$service->slug])}}" title="{{$service->name}}">
+                                        {{$service->name}}
+                                    </a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="a-img" href="{{route('allListBlog')}}" title="Tin tức">
+                                Tin tức
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="a-img" href="{{route('lienHe')}}" title="Liên hệ">
+                                Liên hệ
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 </header>
 <script>
     $('#keyword').keyup(function() {

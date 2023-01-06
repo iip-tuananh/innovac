@@ -67,43 +67,86 @@ class CartController extends Controller
         $id = $request->id;
         $product = Product::findOrFail($id);
         $cart = session()->get('cart',[]);
-        if (isset($request->quantity)) {
-            if(isset($cart[$id])) {
-                $cart[$id]['quantity'] = $cart[$id]['quantity'] + $request->quantity;
-                $cart[$id]['color'] = $request->color;
+        if (isset($request->price)) {
+            if (isset($request->quantity)) {
+                if(isset($cart[$id])) {
+                    $cart[$id]['quantity'] = $cart[$id]['quantity'] + $request->quantity;
+                    $cart[$id]['color'] = $request->color;
+                    $cart[$id]['price'] = $request->price;
+                } else {
+                    $cart[$id] = [
+                        "id" => $product->id,
+                        "name" => $product->name,
+                        "quantity" => $request->quantity,
+                        "price" => $request->price,
+                        "discount" => $product->discount,
+                        "cate_slug" => $product->cate_slug,
+                        "type_slug" => $product->type_slug,
+                        "slug"=>$product->slug,
+                        "image" => json_decode($product->images)[0],
+                        "color" =>$request->color
+                    ];
+                }
             } else {
-                $cart[$id] = [
-                    "id" => $product->id,
-                    "name" => $product->name,
-                    "quantity" => $request->quantity,
-                    "price" => $product->price,
-                    "discount" => $product->discount,
-                    "cate_slug" => $product->cate_slug,
-                    "type_slug" => $product->type_slug,
-                    "slug"=>$product->slug,
-                    "image" => json_decode($product->images)[0],
-                    "color" =>$request->color
-                ];
+                if(isset($cart[$id])) {
+                    $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+                    $cart[$id]['color'] = $request->color;
+                    $cart[$id]['price'] = $request->price;
+                } else {
+                    $cart[$id] = [
+                        "id" => $product->id,
+                        "name" => $product->name,
+                        "quantity" => 1,
+                        "price" => $request->price,
+                        "discount" => $product->discount,
+                        "cate_slug" => $product->cate_slug,
+                        "type_slug" => $product->type_slug,
+                        "slug"=>$product->slug,
+                        "image" => json_decode($product->images)[0],
+                        "color" =>$request->color
+                    ];
+                }
             }
         } else {
-            if(isset($cart[$id])) {
-                $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
-                $cart[$id]['color'] = $request->color;
+            if (isset($request->quantity)) {
+                if(isset($cart[$id])) {
+                    $cart[$id]['quantity'] = $cart[$id]['quantity'] + $request->quantity;
+                    $cart[$id]['color'] = $request->color;
+                } else {
+                    $cart[$id] = [
+                        "id" => $product->id,
+                        "name" => $product->name,
+                        "quantity" => $request->quantity,
+                        "price" => $product->price,
+                        "discount" => $product->discount,
+                        "cate_slug" => $product->cate_slug,
+                        "type_slug" => $product->type_slug,
+                        "slug"=>$product->slug,
+                        "image" => json_decode($product->images)[0],
+                        "color" =>$request->color
+                    ];
+                }
             } else {
-                $cart[$id] = [
-                    "id" => $product->id,
-                    "name" => $product->name,
-                    "quantity" => 1,
-                    "price" => $product->price,
-                    "discount" => $product->discount,
-                    "cate_slug" => $product->cate_slug,
-                    "type_slug" => $product->type_slug,
-                    "slug"=>$product->slug,
-                    "image" => json_decode($product->images)[0],
-                    "color" =>$request->color
-                ];
+                if(isset($cart[$id])) {
+                    $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
+                    $cart[$id]['color'] = $request->color;
+                } else {
+                    $cart[$id] = [
+                        "id" => $product->id,
+                        "name" => $product->name,
+                        "quantity" => 1,
+                        "price" => $product->price,
+                        "discount" => $product->discount,
+                        "cate_slug" => $product->cate_slug,
+                        "type_slug" => $product->type_slug,
+                        "slug"=>$product->slug,
+                        "image" => json_decode($product->images)[0],
+                        "color" =>$request->color
+                    ];
+                }
             }
         }
+        
         
         session()->put('cart', $cart);
         $data['cart'] = session()->get('cart',[]);

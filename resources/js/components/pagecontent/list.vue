@@ -1,7 +1,6 @@
 <template>
   <!-- partial -->
   <div>
-      <h3 class="page-title">Trang nội dung</h3>
       <div class="row">
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">

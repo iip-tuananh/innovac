@@ -11,7 +11,6 @@
 @section('css')
 @endsection
 @section('js')
-   
 @endsection
 @section('content')
     <div class="bodywrap">
@@ -108,11 +107,7 @@
                                                             src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                                             data-src="{{ $brand->image }}" alt="">
                                                     </a>
-
                                                     <div class="actions-primary">
-                                                        <input class="hidden" type="hidden" name="variantId"
-                                                            value="70241732" />
-
                                                     </div>
                                                 </div>
 
@@ -124,9 +119,7 @@
                         </div>
                     </div>
                 </div>
-           
             </section>
-            
             <script>
                 var swiperwish = new Swiper('.product-featured-swiper', {
                     slidesPerView: 6,
@@ -172,91 +165,11 @@
                     }
                 });
             </script>
-            {{-- danh mục phổ biên --}}
-            {{-- <div class="section_category">
-                <div class="container">
-                    <div class="block-title">
-                        <h2>
-                            Danh mục phổ biến
-                        </h2>
-                    </div>
-                    <div class="block-content">
-                        <div class="cate-swiper swiper-container">
-                            <div class="swiper-wrapper">
-                                @foreach ($categoryProduct as $cate)
-                                    <div class="swiper-slide item image_cate">
-                                        <div class="box_cate">
-                                            <div class="img-cate">
-                                                <img src="{{ $cate->avatar }}" alt="{{languageName($cate->name)}}">
-                                            </div>
-                                            <div class="info info_cate ">
-                                                <h3>
-                                                    <a href="{{ route('allListProCate', ['cate' => $cate->slug]) }}"
-                                                        title="{{ languageName($cate->name) }}">
-                                                        {{ languageName($cate->name) }}
-                                                    </a>
-                                                </h3>
-                                                <div class="count">({{ count($cate->product) }} sản phẩm)</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <script>
-                var swiperwish = new Swiper('.cate-swiper', {
-                    slidesPerView: 4,
-                    loop: false,
-                    grabCursor: true,
-                    spaceBetween: 20,
-                    roundLengths: true,
-                    slideToClickedSlide: false,
-                    navigation: {
-                        nextEl: '.cate-swiper .swiper-button-next',
-                        prevEl: '.cate-swiper .swiper-button-prev',
-                    },
-                    pagination: {
-                        el: '.cate-swiper .swiper-pagination',
-                        clickable: true,
-                    },
-                    autoplay: false,
-                    breakpoints: {
-                        300: {
-                            slidesPerView: 2,
-                            spaceBetween: 20
-                        },
-                        500: {
-                            slidesPerView: 2,
-                            spaceBetween: 20
-                        },
-                        640: {
-                            slidesPerView: 2,
-                            spaceBetween: 20
-                        },
-                        768: {
-                            slidesPerView: 3,
-                            spaceBetween: 20
-                        },
-                        991: {
-                            slidesPerView: 4,
-                            spaceBetween: 20
-                        },
-                        1200: {
-                            slidesPerView: 4,
-                            spaceBetween: 20
-                        }
-                    }
-                });
-            </script> --}}
             <div class="section_deal_hot">
                 <div class="container">
                     <div class="block-title">
                         <h2>
-                            <a href="san-pham-noi-bat" title="Sản phẩm nổi bật">
+                            <a href="#" title="Sản phẩm nổi bật">
                                 Sản phẩm nổi bật
                             </a>
                         </h2>
@@ -345,7 +258,6 @@
                                     <div class="block-product">
                                         <div class="product-1-swiper swiper-container">
                                             <div class="swiper-wrapper">
-                                           
                                                 @foreach ($cate->product as $product)
                                                     <div class="swiper-slide">
                                                         @include('layouts.product.item', ['product' => $product])
@@ -519,7 +431,7 @@
                         <div class="col-lg-12 col-12 ">
                             <div class="block-title">
                                 <h2>
-                                    <a href="tin-tuc" title="Tin tức mới nhất">Tin tức mới nhất</a>
+                                    <a href="{{route('allListBlog')}}" title="Tin tức mới nhất">Tin tức mới nhất</a>
                                 </h2>
                             </div>
                             <div class="block-blog">
@@ -581,12 +493,10 @@
                                                 </div>
                                             </div>                                            
                                         @endforeach
-                                  
                                     </div>
                                 </div>
                             </div>
                         </div>
-                       
                     </div>
                 </div>
             </section>

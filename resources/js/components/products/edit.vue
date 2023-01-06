@@ -70,14 +70,29 @@
                 <ImageMulti v-model="objData.images" :title="'san-pham'"/>
               </div>
               <div class="form-group">
-                <label>Giá sản phẩm</label>
-                <vs-input
-                  type="number"
-                  size="default"
-                  icon="all_inclusive"
-                  class="w-100"
-                  v-model="objData.price"
-                />
+                <label>Khoảng giá sản phẩm</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <vs-input
+                      type="number"
+                      size="default"
+                      icon="all_inclusive"
+                      placeholder="Giá thấp nhất"
+                      class="w-100"
+                      v-model="objData.price"
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <vs-input
+                      type="number"
+                      size="default"
+                      icon="all_inclusive"
+                      placeholder="Giá lớn nhất (nếu có)"
+                      class="w-100"
+                      v-model="objData.price_big"
+                    />
+                  </div>
+                </div>
               </div>
               <div class="form-group">
                 <label>Phần trăm giảm giá (%)</label>
@@ -185,25 +200,29 @@
                 </vs-select>
               </div> -->
               <div class="form-group">
-                <label>Màu sắc sản phẩm</label>
+                <label>Phân loại bảo hành (nếu có)</label>
                 <div v-for="(item, index) in objData.size" :key="index">
                   <div class="row">
-                    <div class="col-10">
+                    <div class="col-md-6">
                       <vs-input
                         type="text"
                         size="default"
-                        :placeholder="'Màu ' + index"
+                        :placeholder="'Bảo hành ' + index"
                         class="w-100"
                         v-model="objData.size[index].title"
                       />
-                      <image-upload
-                          v-model="objData.size[index].image"
-                          type="avatar"
-                          :title="'mau-sac'"
-                      ></image-upload>
+                    </div>
+                    <div class="col-md-4">
+                      <vs-input
+                        type="text"
+                        size="default"
+                        placeholder="Giá"
+                        class="w-100"
+                        v-model="objData.size[index].price"
+                      />
                       <br />
                     </div>
-                    <div class="col-2">
+                    <div class="col-md-2">
                       <a
                         href="javascript:;"
                         v-if="index != 0"
@@ -216,8 +235,7 @@
                 </div>
 
                 <el-button size="small" @click="addInput('size')"
-                  >Thêm màu sắc</el-button
-                >
+                  >Thêm bảo hành</el-button>
               </div>
               <div class="form-group">
                 <label>Khuyến mại sản phẩm</label>
@@ -304,10 +322,11 @@ export default {
         size: [
           {
             title: "",
-            image: ""
+            price: ""
           },
         ],
         price: 0,
+        price_big: 0,
         discount: 0,
         preserve:[
           {
@@ -437,7 +456,7 @@ export default {
           this.objData.description = JSON.parse(response.data.description);
           this.objData.name = JSON.parse(response.data.name);
           if(response.data.size == ""){
-            this.objData.size = [{title: "",image: ""}]
+            this.objData.size = [{title: "",price: ""}]
           }else{
             this.objData.size = JSON.parse(response.data.size);
           }
@@ -480,7 +499,7 @@ export default {
         var oj = {};
         if(key =='size'){
           oj.title = "";
-          oj.image = "";
+          oj.price = "";
           this.objData.size.push(oj);
         }
         if(key =='preserve'){

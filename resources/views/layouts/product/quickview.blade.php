@@ -36,62 +36,58 @@ $color = json_decode($product->size);
                <h3 class="qwp-name title-product"><a class="text2line" href="{{route('detailProduct',['cate'=>$product->cate_slug,'slug'=>$product->slug])}}" title="{{languageName($product->name)}}">{{languageName($product->name)}}</a></h3>
                <div class="vend-qv group-status">
                   <div class="left_vend">
-                    
-                        @if ($product->brand != '')
-                        <div class="first_status ">Thương hiệu:
+                     @if ($product->brand != '')
+                     <div class="first_status ">Thương hiệu:
                         <span class="vendor_ status_name">{{ $product->brand->name}}</span>
                      </div>
-                        
-                        @endif
-
-                   
+                     @endif
                   </div>
                </div>
             </div>
-            @if ($discountPrice > 0 && $product->price > 0)
-            <div class="quickview-info">
-               <span class="prices price-box">
-               <span class="price product-price sale-price on-sale">{{number_format($discountPrice, 0 ,'', '.')}}₫</span>
-               <del class="old-price">{{number_format($product->price, 0 ,'', '.')}}₫</del>
-               </span>
-            </div>
+            @if ($product->price > 0 && $product->price_big > 0)
+               <div class="quickview-info has-price-range">
+                  <span class="prices price-box">
+                  <span class="price product-price sale-price on-sale">{{number_format($product->price, 0 ,'', '.')}}₫ - {{number_format($product->price_big, 0, '', '.')}}₫</span>
+                  </span>
+               </div>
             @else
-            <div class="quickview-info">
-               <span class="prices price-box">
-                  <a href="tel:{{$setting->phone1}}">
-                     <span class="price product-price sale-price on-sale">Liên Hệ</span>
-                  </a>
-             
-              
-               </span>
-            </div>
+               @if ($discountPrice > 0 && $product->price > 0)
+               <div class="quickview-info">
+                  <span class="prices price-box">
+                  <span class="price product-price sale-price on-sale">{{number_format($discountPrice, 0 ,'', '.')}}₫</span>
+                  <del class="old-price">{{number_format($product->price, 0 ,'', '.')}}₫</del>
+                  </span>
+               </div>
+               @else
+               <div class="quickview-info">
+                  <span class="prices price-box">
+                     <a href="tel:{{$setting->phone1}}">
+                        <span class="price product-price sale-price on-sale">Liên Hệ</span>
+                     </a>
+                  </span>
+               </div>
+               @endif
             @endif
             <div class="product-description product-summary">
                <div class="rte">
                   {!!languageName($product->description)!!}
                </div>
             </div>
-            <form class="quick_option variants form-ajaxtocart form-product" id="product-actions-27357045">
-               <span class="price-product-detail d-none" style="opacity: 0;">
-               <span class=""></span>
-               </span>
-             
-               <div class="swatch clearfix" >
-                  <div class="header">Màu sắc: </div>
+            <form class="quick_option variants form-ajaxtocart form-product">
+               <div class="swatch clearfix " >
+                  <div class="header">Bảo hành: </div>
                   <input class="variant-0" id="swatch-0-den" type="text" name="color" value="" hidden/>
                   @foreach ($color as $item)
-                  @if($item->title != '' && $item->image != '')
-            
-                  <div  data-value="{{$item->title}}"  class="swatch-element vang available click-color">
-                     <div class="tooltip"></div>
-                   
-                     <img src="{{$item->image}}" alt="{{$item->title}}" class="ant-swatch select-imgs" />
-                     <span>{{$item->title}}</span>
-                  </div>
-                  @else
-                  Không có màu sắc
-                  @endif
+                     @if($item->title != '' && $item->price != '')
+                     <div data-value="{{$item->title}}" data-price="{{$item->price}}" data-discount="{{$product->discount}}" class="swatch-element vang available click-color text-center">
+                        <span>{{$item->title}}</span><br/>
+                        <span style="color: #ff5c00">{{number_format($item->price, 0,'', '.')}}₫</span>
+                     </div>
+                     @else
+                        Không có phân loại bảo hành
+                     @endif
                   @endforeach
+                  <div class="message-error"></div>
                </div>
                @if ($discountPrice > 0 && $product->price > 0)
                <div class="form_product_content">
@@ -104,14 +100,14 @@ $color = json_decode($product->size);
                            <a class="btn_num num_2 button button_qty" onclick="var result = document.getElementById('quantity-detail'); var qtyqv = result.value; if( !isNaN( qtyqv )) result.value++;return false;">+</a>
                         </div>
                      </div>
-                      
                      <div class="button_actions clearfix">
+                        <input type="text" name="id" value="{{$product->id}}" hidden/>
+                        <input type="text" name="product_price" value="{{$product->price}}" hidden/>
                         <button  class="btn_cool btn btn_base fix_add_to_cart ajax_addtocart btn_add_cart btn-cart add_to_cart add_to_cart_detail" data-url="{{route('addToCart')}}"><span class="btn-content text_1 " >Thêm vào giỏ hàng</span></button>
                      </div>
                   </div>
                </div>
                @endif
-               <input type="text" name="id" value="{{$product->id}}" hidden/>
             </form>
          </div>
       </div>
@@ -122,42 +118,57 @@ $color = json_decode($product->size);
       </svg>
    </a>
 </div>
-
 <link rel="preload" as="script" href="{{ asset('frontend/js/swiper.js') }}" />
 <script src="{{ asset('frontend/js/swiper.js') }}" type="text/javascript"></script>
 <script>
    $('.add_to_cart').click(function(e){
       e.preventDefault();
-      var id = $('input[name=id]').val();
+      var id = $(this).parent().find('input[name=id]').val();
       var quantity = $('input[name=quantity]').val();
-    
       var color = $('input[name=color]').val();
+      var price = $('input[name=product_price]').val();
       var url = $(this).data('url');
-      $('#quick-view-product').css('display', 'none');
-      $.ajax({
-         type: "POST",
-         url: url,
-         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-         data: {'id': id, 'quantity': quantity, 'color': color},
-         success: function(data){
-            $('.top-cart-content').html(data.html1);
-            $('.count_item_pr').html(data.html2);
-            $('#popup-cart-desktop').html(data.html3)
-            $('.backdrop__body-backdrop___1rvky').addClass('active');
-            $('#popup-cart-desktop').addClass('active');
-         }
-      })
+      if ($('input[name=color]').empty() && color == '') {
+         $('.swatch').addClass('error');
+         $('.message-error').html('<span>Vui lòng chọn phân loại bảo hành</span>');
+      } else {
+         $.ajax({
+            type: "POST",
+            url: url,
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            data: {id: id, quantity: quantity, color: color, price: price},
+            success: function(data){
+               $('#quick-view-product').css('display', 'none');
+               $('.top-cart-content').html(data.html1);
+               $('.count_item_pr').html(data.html2);
+               $('#popup-cart-desktop').html(data.html3)
+               $('.backdrop__body-backdrop___1rvky').addClass('active');
+               $('#popup-cart-desktop').addClass('active');
+            }
+         })
+      }
    })
 </script>
 <script>
+   function formatNumber(num) {
+      return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+   }
    $(document).ready(function(){
-           $(".click-color").click(function(){ 
-              var color = $(this).data('value');
-              $(this).parent().find('input[name=color]').val(color);
-              $('.click-color').removeClass('active');
-              $(this).addClass('active');
-           })});
-  </script>
+         $(".click-color").click(function(){ 
+            var color = $(this).data('value');
+            var price = $(this).data('price');
+            var discount = $(this).data('discount');
+            const discountPrice = price-(price*(discount/100));
+            var html = '<span class="prices price-box"><span class="price product-price sale-price on-sale">'+formatNumber(discountPrice)+'₫</span> &nbsp;<del class="old-price">'+formatNumber(price)+'₫</del></span>';
+            $(this).parent().find('input[name=color]').val(color);
+            $(this).parents().find('input[name=product_price]').val(price);
+            $(this).parent().removeClass('error');
+            $(this).parent().find('.message-error').html('');
+            $('.has-price-range').html(html);
+            $('.click-color').removeClass('active');
+            $(this).addClass('active');
+   })});
+</script>
 <script>
    function removePopupQickview() {
    $('#quick-view-product').css('display', 'none');

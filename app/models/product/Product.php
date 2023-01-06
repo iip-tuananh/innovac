@@ -55,6 +55,7 @@ class Product extends Model
                 $query->name = json_encode($request->name);
                 $query->slug = to_slug($request->name[0]['content']);
                 $query->price = $request->price != null ? $request->price : 0;
+                $query->price_big = $request->price_big != null ? $request->price_big : 0;
                 $query->discount = $request->discount != null ? $request->discount : 0;
                 $query->images = json_encode($request->images);
                 $query->description = json_encode($request->description);
@@ -86,6 +87,7 @@ class Product extends Model
             $query->name = json_encode($request->name);
             $query->slug = to_slug($request->name[0]['content']);
             $query->price = $request->price != null ? $request->price : 0;
+            $query->price_big = $request->price_big != null ? $request->price_big : 0;
             $query->discount = $request->discount != null ? $request->discount : 0;
             $query->images = json_encode($request->images);
             $query->description = json_encode($request->description);

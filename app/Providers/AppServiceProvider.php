@@ -65,7 +65,6 @@ class AppServiceProvider extends ServiceProvider
             });
             $productBrands = ProductBrands::where('status', 1)->get();
             $bannerAds = BannerAds::where('status',2)->get(['name','image','id']);
-         
             $bannerPhu = Banner::where(['status'=>2])->limit(3)->get(['id','image','link','title','description']);
             $banners = Banner::where(['status'=>1])->get(['id','image','link','title','description']);
             $cartcontent = session()->get('cart', []);
@@ -85,9 +84,9 @@ class AppServiceProvider extends ServiceProvider
             $hotBlogs = Blog::where([
                 'status'=>1, 'home_status'=>1
             ])->orderBy('id','DESC')->get(['id','title','slug','image','description','updated_at']);
-            $hotProduct = Product::where(['status'=>1, 'discountStatus'=>1])->limit(8)->get(['id', 'name', 'cate_slug', 'slug','images','price','discount']);
+            $hotProduct = Product::where(['status'=>1, 'discountStatus'=>1])->limit(8)->get(['id', 'name', 'cate_slug', 'slug','images','price','price_big','discount']);
             $helpCustomer = PageContent::where(['status'=>1,'language'=>'vi', 'type'=>'ho-tro-khach-hang'])->get(['title','slug']);
-
+            $headerTopAboutUs = PageContent::where(['status'=>2,'language'=>'vi', 'type'=>'ve-chung-toi'])->get(['title','slug']);
             $partners = Partner::where(['status'=>1])->get(['id','image','name','link']);
             $view->with([
                 'promotio' => $promotio,
@@ -109,6 +108,7 @@ class AppServiceProvider extends ServiceProvider
                 'partners'=>$partners,
                 'bannerPhu'=> $bannerPhu,
                 'typeCate'=> $typeCate,
+                'headerTopAboutUs'=>$headerTopAboutUs
                 ]);    
         });  
     }

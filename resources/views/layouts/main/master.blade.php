@@ -119,16 +119,15 @@
 </head>
 
 <body>
-  
-   <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WB6T2NQ');</script>
     <!-- End Google Tag Manager -->
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WB6T2NQ"
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WB6T2NQ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     @if (session()->has('successBill'));
@@ -178,20 +177,30 @@
     <div id="popup-cart-desktop" class="popup-cart">
     </div>
     <div id="popup-cart-mobile" class="popup-cart-mobile">
-     </div>
+    </div>
     <div id="quick-view-product" class="quickview-product" style="display:none">
-        
-     </div>
+    </div>
     <link rel="preload" as="script" href="{{asset('frontend/js/main.js')}}" />
     <script src="{{asset('frontend/js/main.js')}}" type="text/javascript">
     </script>
+    <style>
+        .swatch.error {
+        background-color: #fff5f5;
+        padding: 5px 12px;
+        }
+        .swatch.error .message-error{
+        color: #ff5c00
+        }
+        .swatch.error .click-color{
+        background-color: #ffff;
+        }
+    </style>
     @yield('js')
     {{-- data-quick-view --}}
     <script>
         $('.quick-view-pro').click(function(){
             var id = $(this).data('id');
             var url = $(this).data('url');
-            console.log(id, url);
             $.ajax({
                 type : 'POST',
                 url : url,
@@ -212,28 +221,34 @@
         var id = $(this).parent().find('input[name=id]').val();
         var quantity = $('input[name=quantity]').val();
         var color = $('input[name=color]').val();
+        var price = $('input[name=product_price]').val();
         var url = $(this).data('url');
-        $.ajax({
-            type: "POST",
-            url: url,
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            data: {'id': id, 'quantity': quantity, 'color': color},
-            success: function(data){
-                $('.top-cart-content').html(data.html1);
-                $('.count_item_pr').html(data.html2);
-                $('.backdrop__body-backdrop___1rvky').addClass('active');
-                if ($(window).width() > 768) {
-                    $('#popup-cart-desktop').html(data.html3);
-                    $('#popup-cart-desktop').addClass('active');
-                    $('#popup-cart-mobile').removeClass('active');
-                } else {
-                    $('#popup-cart-mobile').html(data.html5);
-                    $('#popup-cart-desktop').removeClass('active');
-                    $('#popup-cart-mobile').addClass('active');
-
+        if ($('input[name=color]').empty() && color == '') {
+            $('.swatch').addClass('error');
+            $('.message-error').html('<span>Vui lòng chọn phân loại bảo hành</span>'); 
+        } else {
+            $.ajax({
+                type: "POST",
+                url: url,
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                data: {id: id, quantity: quantity, color: color, price: price },
+                success: function(data){
+                    $('.top-cart-content').html(data.html1);
+                    $('.count_item_pr').html(data.html2);
+                    $('.backdrop__body-backdrop___1rvky').addClass('active');
+                    if ($(window).width() > 768) {
+                        $('#popup-cart-desktop').html(data.html3);
+                        $('#popup-cart-desktop').addClass('active');
+                        $('#popup-cart-mobile').removeClass('active');
+                    } else {
+                        $('#popup-cart-mobile').html(data.html5);
+                        $('#popup-cart-desktop').removeClass('active');
+                        $('#popup-cart-mobile').addClass('active');
+    
+                    }
                 }
-            }
-        })
+            })
+        }
         })
     </script>
 
@@ -308,13 +323,12 @@
     {{-- romove-notify-popup --}}
     <script>
         function removeNotify() {
-   $('#popup-notify').css('display', 'none');
-   }
-   $('.quickview-overlay ').click(function() {
-   $('#popup-notify').css('display', 'none');
-   })
+            $('#popup-notify').css('display', 'none');
+            }
+            $('.quickview-overlay ').click(function() {
+            $('#popup-notify').css('display', 'none');
+            })
     </script>
-  
     <div id="sidebar-all" class="d-none">
         <div class="sidebar-all-wrap-right container" data-type="wishlist">
             <div class="sidebar-all-wrap-right-main">
@@ -485,9 +499,6 @@
                 </svg>
             </symbol>
         </svg>
-        <script>
-        
-        </script>
     </div>
 </body>
 </html>

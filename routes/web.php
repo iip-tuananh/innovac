@@ -85,7 +85,7 @@
         Route::get('{cate}/{typecate}/{typetwo}.html','ProductController@allListTypeTwo')->name('allListTypeTwo');
         Route::post('cate-product','ProductController@listCatePro')->name('listCatePro');
         Route::post('san-pham/filter','ProductController@filterProduct')->name('filterProduct');
-        Route::post('san-pham/quickview/{id}','ProductController@quickview')->name('quickview');
+        Route::post('san-pham/quickview','ProductController@quickview')->name('quickview');
     });
 
 

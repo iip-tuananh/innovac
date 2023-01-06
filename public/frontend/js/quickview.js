@@ -681,40 +681,6 @@ $(document).on('click', '.quickview-close, #quick-view-product .quickview-overla
 	awe_hidePopup();
 });
 
-$(document).on('click', '.fix_add_to_cart', function(e) {	
-	e.preventDefault();		
-	$('#quick-view-product').hide();
-	var $this = $(this);
-	var form = $this.parents('form');		
-	$.ajax({
-		type: 'POST',
-		url: '/cart/add.js',
-		async: false,
-		data: form.serialize(),
-		dataType: 'json',
-		beforeSend: function() {  
-		},
-		success: function(line_item) {
-			var qty = $('.quick-view-product').find('.prd_quantity').val();
-
-			$('.cart-popup-name').html(line_item.title).attr('href', line_item.url, 'title', line_item.title);
-			ajaxCart.load();
-			console.log(qty, 'sl');
-			if ((typeof callback) === 'function') {
-				callback(line_item, form);
-				$('#popup-cart-desktop, .backdrop__body-backdrop___1rvky').addClass('active');
-			}
-			else {
-				$('#popup-cart-desktop, .backdrop__body-backdrop___1rvky').addClass('active');
-				AddCartMobile(line_item, qty);
-			}
-		},
-		cache: false
-	});
-});
-
-
-
 var modal = $('.quickview-product');
 var btn = $('.quick-view');
 var span = $('.quickview-close');

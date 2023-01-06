@@ -26,7 +26,7 @@ class HomeController extends Controller
         $data['video'] = Video::where(['status'=>1])->first();
         $data['aboutUs'] = PageContent::where(['status'=>1, 'type'=>'ve-chung-toi', 'language'=>'vi'])->first();
         $data['reviewCus'] = ReviewCus::where('status',1)->get(['name','content','avatar']);
-        $data['homeProduct'] = array_chunk(Product::where(['status'=>1, 'discountStatus'=>1])->limit(6)->get(['id','category','name','discount','images','slug','cate_slug','type_slug', 'description'])->toArray(), 2, false);
+        $data['homeProduct'] = array_chunk(Product::where(['status'=>1, 'discountStatus'=>1])->limit(6)->get(['id','category','name','discount','images','slug','cate_slug','type_slug', 'description','price','price_big'])->toArray(), 2, false);
         $data['homeBlog'] = array_chunk(Blog::where(['status'=>1, 'home_status'=>1])->orderBy('id', 'desc')->limit(6)->get(['id','title','image','slug','created_at','description'])->toArray(),3,false);
         return view('home',$data);
     }

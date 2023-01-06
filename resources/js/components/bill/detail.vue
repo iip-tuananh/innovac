@@ -10,10 +10,9 @@
                 <template slot="thead">
                   <vs-th>Ảnh sản phẩm</vs-th>
                   <vs-th>Tên sản phẩm</vs-th>
-                  <vs-th>Màu sắc</vs-th>
-                  <vs-th>Kích thước</vs-th>
+                  <vs-th>Bảo hành</vs-th>
                   <vs-th>Giá gốc</vs-th>
-                  <vs-th>Giá giảm</vs-th>
+                  <vs-th>Phần trăm giảm</vs-th>
                   <vs-th>Số lượng</vs-th>
                 </template>
                 <template slot-scope="{data}">
@@ -22,10 +21,8 @@
                     <vs-td>{{tr.name}}</vs-td>
                     <vs-td v-if="tr.color != null">{{tr.color}}</vs-td>
                     <vs-td v-if="tr.color == null">----</vs-td>
-                    <vs-td v-if="tr.size != null">{{tr.size}}</vs-td>
-                    <vs-td v-if="tr.size == null">----</vs-td>
                     <vs-td >{{formatNumber(tr.price)}}</vs-td>
-                    <vs-td >{{formatNumber(tr.discount)}}</vs-td>
+                    <vs-td >{{formatNumber(tr.discount)}} %</vs-td>
                     <vs-td >{{tr.qty}}</vs-td>
                   </vs-tr>
                 </template>

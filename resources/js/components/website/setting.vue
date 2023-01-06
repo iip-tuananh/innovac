@@ -42,7 +42,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label>Số hotline</label>
+                  <label>Số hotline Hà Nội</label>
                   <vs-input
                     type="text"
                     size="default"
@@ -51,7 +51,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label>Số điện thoại kĩ thuật</label>
+                  <label>Số hotline TP.HCM</label>
                   <vs-input
                     type="text"
                     size="default"
@@ -60,7 +60,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label>Số điện thoại tư vấn</label>
+                  <label>Số điện thoại</label>
                   <vs-input
                     type="text"
                     size="default"

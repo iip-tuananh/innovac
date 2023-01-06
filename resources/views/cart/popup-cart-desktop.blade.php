@@ -44,7 +44,7 @@
                                 <a href="" class="ajaxcart__product-name h4" title="{{languageName($item['name'])}}">{{languageName($item['name'])}}</a>
                                 @if(($item['color']) != '')
                                 <span class="ajaxcart__product-meta variant-title">
-                                    {{$item['color']}}
+                                    Bảo hành: {{$item['color']}}
                                 </span>
                                 @endif
                                 <a class="cart__btn-remove remove-item-cart ajaxifyCart--remove" href="javascript:;" onclick="removeItemCart({{$item['id']}})" data-url="{{route('removeCart')}}">Xóa</a>

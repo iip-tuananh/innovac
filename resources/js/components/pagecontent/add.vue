@@ -47,6 +47,7 @@
                 <label>Trạng thái</label>
                 <vs-select v-model="objData.status"
                   >
+                  <vs-select-item  value="2" text="Vị trí header top" />
                   <vs-select-item  value="1" text="Hiện" />
                   <vs-select-item  value="0" text="Ẩn" />
                 </vs-select>
