@@ -44,7 +44,7 @@
                         <div class="col-lg-3 col-md-3 col-6 banner">
                             @if (isset($bannerPhu[0]))
                                 <div class="item thumb-1">
-                                    <a class="image_hover" href="#" title="banner phu">
+                                    <a class="image_hover" href="{{$bannerPhu[0]->link}}" title="banner phu">
                                         <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{ $bannerPhu[0]->image }}" alt="banner phu">
                                     </a>
@@ -52,7 +52,7 @@
                             @endif
                             @if (isset($bannerPhu[1]))
                                 <div class="item thumb-2">
-                                    <a class="image_hover" href="#" title="banner phu">
+                                    <a class="image_hover" href="{{$bannerPhu[1]->link}}" title="banner phu">
                                         <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{ $bannerPhu[1]->image }}" alt="banner phu">
                                     </a>
@@ -62,7 +62,7 @@
                         <div class="col-lg-3 col-md-3 col-6 banner">
                             @if (isset($bannerPhu[2]))
                                 <div class="item thumb-3">
-                                    <a class="image_hover" href="#" title="banner phu">
+                                    <a class="image_hover" href="{{$bannerPhu[2]->link}}" title="banner phu">
                                         <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
                                             data-src="{{ $bannerPhu[2]->image }}" alt="banner phu">
                                     </a>
