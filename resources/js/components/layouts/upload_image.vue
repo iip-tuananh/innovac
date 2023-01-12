@@ -1,21 +1,21 @@
 <template>
     <el-upload class="avatar-uploader"
-               v-loading="loading"
-               :class="type"
-               :style="'height:' + height"
-               :action="'/upload'"
-               name="img"
-               :http-request="request"
-               :before-upload="beforeUpload"
-               :on-remove="handleRemove"
-               :show-file-list="false"
-               :file-list="fileList">
+            v-loading="loading"
+            :class="type"
+            :style="'height:' + height"
+            :action="'/upload'"
+            name="img"
+            :http-request="request"
+            :before-upload="beforeUpload"
+            :on-remove="handleRemove"
+            :show-file-list="false"
+            :file-list="fileList">
         <img v-if="imageUrl || value" :src="imageUrl || value">
         <i v-else class="el-icon-plus avatar-uploader-icon"
-           :style="[{height: height}, {maxHeight: height}, {lineHeight: height}]"></i>
+        :style="[{height: height}, {maxHeight: height}, {lineHeight: height}]"></i>
     </el-upload>
 </template>
- 
+
 <script>
     import config from '../../../config';
     import imageCompression from 'browser-image-compression';
@@ -120,9 +120,9 @@
                     })
             }
         },
-        created() {
-            this.imageUrl = this.value;
-        }
+        // created() {
+        //     this.imageUrl = this.value;
+        // }
     }
 </script>
 

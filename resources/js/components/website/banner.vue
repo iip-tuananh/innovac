@@ -5,7 +5,7 @@
         <div class="col-md-12 grid-margin stretch-card">
           <div class="card">
             <div class="card-body" >
-              <div class="row" v-for="(item, key) in objData" :key="key">
+              <div class="row" v-for="(item, index) in objData" :key="index">
                 <div class="col-md-3">
                   <div class="form-group">
                     <image-upload type="avatar" v-model="item.image" :title="'banner-trang-chu'"></image-upload>
@@ -14,8 +14,8 @@
                 <div class="col-md-9">
                   <div class="form-group">
                     <label>Tiêu đề (Bỏ trống nếu là banner nhỏ)</label>
-                    <label style="float: right;cursor: pointer" title="Xóa banner" v-if="key != 0" @click="removeObjBanner(key)">
-                      <vs-icon icon="clear"></vs-icon>
+                    <label style="float: right;cursor: pointer" title="Xóa banner" v-if="index != 0">
+                      <vs-icon icon="clear" @click="removeObjBanner(index)"></vs-icon>
                     </label>
                     <vs-input
                       type="text"
@@ -27,9 +27,6 @@
                   </div>
                   <div class="form-group">
                     <label>Mô tả</label>
-                    <label style="float: right;cursor: pointer" title="Xóa banner" v-if="key != 0" @click="removeObjBanner(key)">
-                      <vs-icon icon="clear"></vs-icon>
-                    </label>
                     <vs-input
                       type="text"
                       v-model="item.description"
@@ -40,9 +37,6 @@
                   </div>
                   <div class="form-group">
                     <label>Link</label>
-                    <label style="float: right;cursor: pointer" title="Xóa banner" v-if="key != 0" @click="removeObjBanner(key)">
-                      <vs-icon icon="clear"></vs-icon>
-                    </label>
                     <vs-input
                       type="text"
                       v-model="item.link"
@@ -55,7 +49,7 @@
                     <label>Trạng thái</label>
                     <vs-select v-model="item.status"
                   >
-                      <vs-select-item  value="2" text="Đứng ime" />
+                      <vs-select-item  value="2" text="Đứng im" />
                       <vs-select-item  value="1" text="Chạy slide" />
                       <vs-select-item  value="0" text="Ẩn" />
                     </vs-select>
@@ -83,6 +77,7 @@ export default {
     return {
       objData:[
         {
+          id: '',
           image: "",
           status:1,
           link:"",
@@ -107,6 +102,9 @@ export default {
         this.$error('Sửa banner thất bại');
       })
     },
+    removeObjBanner(key){
+      this.objData.splice(key, 1);
+    },
     addObjBanner(){
       this.objData.push({
           image: "",
@@ -115,9 +113,6 @@ export default {
           title:"",
           description:"",
         });
-    },
-    removeObjBanner(i){
-      this.objData.splice(i, 1);
     },
     listBanners(){
       this.loadings(true);

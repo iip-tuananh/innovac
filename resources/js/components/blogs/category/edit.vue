@@ -62,7 +62,7 @@
       <div class="row fixxed">
         <div class="col-12">
           <div class="saveButton">
-            <vs-button color="primary"@click="saveEdit()">Cập nhật</vs-button>
+            <vs-button color="primary" @click="saveEdit()">Cập nhật</vs-button>
           </div>
         </div>
       </div>
