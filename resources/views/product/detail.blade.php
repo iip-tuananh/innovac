@@ -340,7 +340,7 @@ $promotion =  json_decode($product->preserve);
                               <div class="select-swatch">
                                  <div id="variant-swatch-0" class="swatch clearfix">
                                     @if ($color[0]->title != '')
-                                       <div class="header">Bảo hành:</div>
+                                       <div class="header">Phân loại:</div>
                                        <div class="select-swap">
                                        <input class="variant-0" id="swatch-0-den" type="text" name="color" value="" class="hidden"/>
                                           @foreach ($color as $item)
