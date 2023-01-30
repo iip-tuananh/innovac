@@ -346,7 +346,14 @@ $promotion =  json_decode($product->preserve);
                                           @foreach ($color as $item)
                                           <div data-value="{{$item->title}}" data-price="{{$item->price}}" data-discount="{{$product->discount}}" class="swatch-element vang available click-color text-center">
                                              <span>{{$item->title}}</span><br/>
-                                             <span style="color: #ff5c00">{{number_format($item->price, 0,'', '.')}}₫</span>
+                                             @if ($product->discount > 0)
+                                                @php
+                                                   $priceDis = $item->price - ($item->price * ($product->discount / 100));
+                                                @endphp
+                                                <span style="color: #ff5c00">{{number_format($priceDis, 0,'', '.')}}₫</span>
+                                             @else
+                                                <span style="color: #ff5c00">{{number_format($item->price, 0,'', '.')}}₫</span>
+                                             @endif
                                           </div>
                                           @endforeach                    
                                           <div class="message-error"></div>
