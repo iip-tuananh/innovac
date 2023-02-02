@@ -39,7 +39,7 @@
     <link rel="preload" as="script" href="{{ asset('frontend/js/swiper.js') }}" />
     <script src="{{ asset('frontend/js/swiper.js') }}" type="text/javascript"></script>
     <link rel="preload" as="script" href="{{asset('frontend/js/quickview.js')}}" />
-<script src="{{asset('frontend/js/quickview.js')}}" type="text/javascript"></script>
+    <script src="{{asset('frontend/js/quickview.js')}}" type="text/javascript"></script>
     <link rel="preload" as="script" href="{{ asset('frontend/js/lazy.js') }}" />
     <script src="{{ asset('frontend/js/lazy.js') }}" type="text/javascript"></script>
     <link rel="preload" href="{{ asset('frontend/css/main.scss.css') }}">
@@ -116,9 +116,6 @@
             })
         })
     </script>
-</head>
-
-<body>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -126,6 +123,9 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WB6T2NQ');</script>
     <!-- End Google Tag Manager -->
+</head>
+
+<body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WB6T2NQ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
