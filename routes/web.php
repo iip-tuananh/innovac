@@ -21,7 +21,6 @@
     //     return view('app');
     // });
     Route::get('/admin', function () {
-        dd(1);
         return view('app');
     }); 
     Route::get('/','HomeController@home')->name('home')->middleware(checkLanguage::class);
