@@ -18,7 +18,7 @@
       gtag('config', 'UA-118965717-7');
     </script>
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <script>
       window.__ENV__ = window.__ENV || {}; __ENV__.link ='https://innovacgroup.com/';
       window.Laravel = {!! 
