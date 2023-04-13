@@ -17,12 +17,13 @@
         $exitCode = Artisan::call('config:cache');
         return 'DONE'; //Return anything
     });
-    // Route::get('/crm', function () {
+Route::get('/crm', function () {
+    return view('app');
+});
+    // Route::get('/admin', function () {
+    //     dd(1);
     //     return view('app');
-    // });
-    Route::get('/admin', function () {
-        return view('app');
-    }); 
+    // }); 
     Route::get('/','HomeController@home')->name('home')->middleware(checkLanguage::class);
     Route::group(['namespace'=>'Client','middleware' => ['checkLanguage']], function(){
     Route::get('type-product/{id}','PageController@typeproduct');
